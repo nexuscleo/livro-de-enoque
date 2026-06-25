@@ -177,7 +177,7 @@ h5 {
     height: 100vh;
     overflow-y: auto;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     position: relative;
     z-index: 10;
     transition: var(--transition-smooth);
@@ -193,7 +193,7 @@ h5 {
 /* Capa */
 .cover-container {
     max-width: 800px;
-    max-height: 700px;
+    height: 100%;
     text-align: center;
     padding: 3.5rem 2rem;
     position: relative;
