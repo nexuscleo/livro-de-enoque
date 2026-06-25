@@ -755,15 +755,18 @@ h5 {
 }
 
 /* Image panels inside chapters */
+.illustration-container {
+    margin: 2.5rem 0;
+    width: 100%;
+}
+
 .chapter-illustration {
     width: 100%;
     max-height: 400px;
     overflow: hidden;
     border-radius: 12px;
     border: var(--border-gold);
-    margin: 2.5rem 0;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    position: relative;
 }
 
 .chapter-illustration img {
@@ -780,15 +783,13 @@ h5 {
 }
 
 .illustration-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-    padding: 1.5rem 2rem 1rem 2rem;
+    margin-top: 0.75rem;
+    padding: 0 1rem;
     font-size: 0.9rem;
     font-family: var(--font-sans);
     color: var(--color-text-muted);
+    text-align: center;
+    line-height: 1.5;
 }
 
 .illustration-caption strong {
