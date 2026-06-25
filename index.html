@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enoque — O Códice Celestial Interativo</title>
+    <meta name="description"
+        content="Um livro digital interativo sobre o Livro de Enoque: a queda dos Vigilantes, a ascensão aos 10 céus e a transformação no arcanjo Metatron.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="stars-bg"></div>
+    <div class="stars-particles"></div>
+    <div class="nebula nebula-purple"></div>
+    <div class="nebula-blue nebula"></div>
+
+    <!-- COVER SCREEN -->
+    <section id="screen-cover" class="active">
+        <div class="cover-container glass-panel">
+            <h1 class="cover-title">ENOQUE</h1>
+            <div class="cover-subtitle">O CÓDICE CELESTIAL</div>
+
+            <div class="cover-img-wrapper">
+                <img src="assets/enoque_capa_mystic.png" alt="Capa do Livro de Enoque" class="cover-img">
+            </div>
+
+            <div class="seal-wrapper">
+                <svg class="seal-svg" viewBox="0 0 100 100">
+                    <!-- Mystical geometric lines for the seal -->
+                    <circle cx="50" cy="50" r="45" />
+                    <circle cx="50" cy="50" r="42" stroke-dasharray="2, 2" />
+                    <polygon points="50,5 90,75 10,75" />
+                    <polygon points="50,95 90,25 10,25" />
+                    <circle cx="50" cy="50" r="15" />
+                    <!-- Outer text or symbols markers -->
+                    <line x1="50" y1="5" x2="50" y2="95" />
+                    <line x1="10" y1="25" x2="90" y2="75" />
+                    <line x1="10" y1="75" x2="90" y2="25" />
+                </svg>
+            </div>
+
+            <p
+                style="font-family: var(--font-sans); font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Explore a compilação completa dos textos apócrifos: a rebelião dos anjos Vigilantes, os mistérios
+                cosmológicos das luminárias, a travessia dos dez céus e a revelação do escriba sagrado.
+            </p>
+
+            <button class="btn-celestial" id="btn-open-book">ABRIR O CÓDICE</button>
+        </div>
+    </section>
+
+    <!-- MAIN APP SCREEN -->
+    <main id="screen-app">
+
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar glass-panel">
+            <div class="sidebar-header">
+                <svg class="sidebar-logo" viewBox="0 0 100 100">
+                    <polygon points="50,10 85,80 15,80" />
+                    <circle cx="50" cy="53" r="18" />
+                </svg>
+                <h2>Enoque</h2>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item active" data-target="cap1">
+                    <span class="icon">📜</span>
+                    <span class="text">1. O Escriba e os Livros</span>
+                </li>
+                <li class="nav-item" data-target="cap2">
+                    <span class="icon">👁️</span>
+                    <span class="text">2. Queda dos Vigilantes</span>
+                </li>
+                <li class="nav-item" data-target="cap3">
+                    <span class="icon">🌌</span>
+                    <span class="text">3. Os Dez Céus</span>
+                </li>
+                <li class="nav-item" data-target="cap4">
+                    <span class="icon">🌊</span>
+                    <span class="text">4. A Conexão com o Dilúvio</span>
+                </li>
+                <li class="nav-item" data-target="cap5">
+                    <span class="icon">🔥</span>
+                    <span class="text">5. O Trono de Metatron</span>
+                </li>
+                <li class="nav-item" data-target="cap6">
+                    <span class="icon">📚</span>
+                    <span class="text">6. Biblioteca de Citações</span>
+                </li>
+                <li class="nav-item" data-target="cap7">
+                    <span class="icon">🔮</span>
+                    <span class="text">7. Simbologia Enoquiana</span>
+                </li>
+            </ul>
+
+            <div class="sidebar-controls">
+                <!-- Ambient Audio Synth Control -->
+                <div class="audio-widget">
+                    <div class="audio-header">
+                        <span>Fundo Celestial</span>
+                        <button class="audio-toggle-btn" id="btn-toggle-audio">MUTAR</button>
+                    </div>
+                    <div class="volume-control">
+                        <span>🔈</span>
+                        <input type="range" id="slider-volume" class="volume-slider" min="0" max="1" step="0.05"
+                            value="0.3">
+                        <span>🔊</span>
+                    </div>
+                </div>
+
+                <!-- Font Resizer -->
+                <div class="settings-widget">
+                    <span>Tamanho do Texto</span>
+                    <div class="text-resizer">
+                        <button class="resize-btn" id="btn-text-decrease">A-</button>
+                        <button class="resize-btn" id="btn-text-reset">100%</button>
+                        <button class="resize-btn" id="btn-text-increase">A+</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Reading and Interactive Content Pane -->
+        <section class="app-content" id="app-content-pane">
+
+            <!-- CAPÍTULO 1 -->
+            <div id="cap1" class="chapter-view active">
+                <div class="chapter-header">
+                    <span class="chapter-num">Capítulo I</span>
+                    <h2 class="chapter-title">O Escriba Sagrado e os Livros Perdidos</h2>
+                </div>
+
+                <div class="chapter-body">
+                    <p class="no-indent">
+                        <strong>Enoque</strong>, o sétimo patriarca antediluviano na linhagem direta de Adão (Adão → Set
+                        → Enos → Cainan → Mahalalel → Jared → Enoque), ocupa um dos papéis mais singulares e misteriosos
+                        da literatura teológica antiga. Segundo a breve passagem de Gênesis 5:24, Enoque <em>"caminhou
+                            com Deus; e já não era visto, porque Deus o levou para Si"</em>. Em vez de experimentar a
+                        morte biológica comum, Enoque foi arrebatado diretamente para as moradas divinas, servindo como
+                        uma ponte biográfica viva entre a Terra e o Céu.
+                    </p>
+
+                    <p>
+                        Os textos atribuídos a ele, conhecidos coletivamente como <strong>Os Livros de Enoque</strong>,
+                        pertencem ao gênero apocalíptico e pseudepígrafo (ou apócrifo), não integrando o cânon bíblico
+                        da maioria das tradições judaicas e cristãs, com exceção notável da Igreja Ortodoxa Etíope
+                        Tewahedo. Durante séculos, estas obras foram dadas como perdidas no Ocidente, sobrevivendo
+                        apenas em lendas místicas e citações fragmentárias de pais da igreja primitiva, até que
+                        manuscritos completos foram redescobertos na Etiópia no final do século XVIII e, posteriormente,
+                        fragmentos em aramaico e grego foram desenterrados nas cavernas de Qumran (Manuscritos do Mar
+                        Morto) em meados do século XX.
+                    </p>
+
+                    <h3>A Linhagem e Genealogia Sagrada</h3>
+                    <p>
+                        Enoque está inserido no centro da genealogia patriarcal antediluviana. Ele é o sétimo
+                        descendente direto na linha iniciada por Adão:
+                        <strong>Adão &rarr; Set &rarr; Enos &rarr; Cainan &rarr; Mahalalel &rarr; Jared &rarr;
+                            Enoque</strong>.
+                        Filho de Jared, ele se tornou pai de Matusalém (o homem de maior longevidade registrado nos
+                        textos antigos) e bisavô de Noé, o construtor da arca.
+                    </p>
+
+                    <h3>Características Terrenas e Espirituais</h3>
+                    <p>
+                        A existência terrena de Enoque é marcada por símbolos numéricos e espirituais únicos:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>A Longevidade Solar:</strong> Ele viveu exatamente 365 anos terrestres antes de sua
+                            ascensão, número que corresponde precisamente aos dias do ciclo solar anual, refletindo seu
+                            profundo conhecimento cosmológico.
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>Caminhar com o Divino:</strong> Sua vida foi caracterizada por uma comunhão perfeita
+                            e inabalável com o Criador, servindo de elo ético em um mundo em rápida degeneração moral.
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>O Escriba da Presença:</strong> Antes de sua unção celestial, já atuava registrando
+                            pregações e advertências éticas destinadas às gerações futuras.
+                        </li>
+                    </ul>
+
+                    <h3>As Três Grandes Versões</h3>
+                    <p>
+                        A literatura enoquiana divide-se em três obras principais, compostas em épocas e contextos
+                        culturais diferentes, mas que se complementam na construção do misticismo cosmológico:
+                    </p>
+
+                    <div class="quote-box">
+                        <p>"A Sabedoria não encontrou um lugar onde pudesse habitar, então sua casa foi estabelecida nos
+                            céus. Ela veio habitar entre os filhos dos homens, mas não encontrou abrigo. Então a
+                            Sabedoria retornou ao seu lar e tomou seu assento entre os anjos."</p>
+                        <div class="quote-author">1 Enoque 42:1-2</div>
+                    </div>
+
+                    <ol style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Primeiro Livro de Enoque (1 Enoque — Versão Etíope):</strong> Composto originalmente
+                            entre os séculos III a.C. e I a.C., é o texto mais antigo e abrangente. Está dividido em
+                            cinco seções principais: o <em>Livro dos Vigilantes</em> (queda dos anjos), o <em>Livro das
+                                Parábolas</em> (julgamento final e o Filho do Homem), o <em>Livro Astronômico</em>
+                            (movimento das luminárias celestes), o <em>Livro dos Sonhos</em> (visões alegóricas do
+                            dilúvio e da história humana) e as <em>Cartas de Enoque</em>.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Segundo Livro de Enoque (2 Enoque — Versão Eslava):</strong> Também chamado de
+                            <em>"Livro dos Segredos de Enoque"</em>, datado aproximadamente do século I d.C. É um texto
+                            de forte inclinação mística que narra a viagem de Enoque através de dez céus concêntricos,
+                            revelando a geografia espiritual do cosmos e a posterior transformação de sua natureza
+                            física.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Terceiro Livro de Enoque (3 Enoque — Versão Hebraica):</strong> Pertence à tradição
+                            rabínica medieval (séculos V a X d.C.) associada ao misticismo da *Merkabah* (carruagem
+                            divina). Descreve a ascensão do Rabi Ismael ao céu, onde ele encontra Enoque já
+                            metamorfoseado em <strong>Metatron</strong>, o governante supremo de todas as hostes
+                            angélicas e o "Pequeno YHWH".
+                        </li>
+                    </ol>
+
+                    <h3>Importância e Canonicidade</h3>
+                    <p>
+                        Embora rejeitado pelo Concílio de Laodiceia (século IV d.C.) por suas vívidas descrições
+                        cosmológicas e anomalias angélicas que desafiavam a nascente ortodoxia, o Livro de Enoque
+                        influenciou profundamente o pensamento judaico do período do Segundo Templo e o cristianismo
+                        primitivo. O próprio Novo Testamento cita Enoque diretamente na epístola de Judas 1:14-15,
+                        demonstrando que o texto circulava com autoridade espiritual entre os apóstolos. A preservação
+                        integral do manuscrito etíope (em língua Ge'ez) é um testemunho da profunda reverência que o
+                        misticismo do escriba manteve nas igrejas orientais.
+                    </p>
+
+                    <h3>Gênese Textual e Filologia</h3>
+                    <p>
+                        Apesar de Enoque ser citado de forma extremamente concisa no texto bíblico tradicional, a tradição que se seguiu é fruto de séculos de literatura midrásica e expansões pseudo-epigráficas. Estudos filológicos de pesquisadores como R.H. Charles e James VanderKam revelam que a língua original de 1 Enoque era o aramaico (como evidenciado pelos fragmentos dos Manuscritos do Mar Morto em Qumran), posteriormente traduzido para o grego e preservado integralmente apenas no idioma Ge'ez (etíope clássico).
+                    </p>
+
+                    <h3>Confiabilidade Histórica vs. Literatura Religiosa</h3>
+                    <p>
+                        Pesquisadores modernos, como Gabriele Boccaccini, classificam os escritos de Enoque como a expressão de um movimento teológico judaico específico do período do Segundo Templo (séc. III a.C. a I d.C.), denominado "Enoquismo". Do ponto de vista histórico, o texto não deve ser lido como uma biografia factual do patriarca antediluviano, mas sim como uma rica produção literária que reflete as preocupações escatológicas, a busca por justiça social e o desenvolvimento da angelologia judaica em resposta a influências culturais persas e helenísticas.
+                    </p>
+
+                    <div class="chapter-illustration">
+                        <img src="assets/enoque_capa_mystic.png" alt="Grimório Místico de Enoque">
+                        <div class="illustration-caption">
+                            <strong>Figura 1.1:</strong> Representação simbólica do Códice de Enoque, contendo os
+                            cálculos das estrelas e os decretos divinos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chapter-footer-nav">
+                    <span></span>
+                    <button class="btn-nav-page" data-next="cap2">Próximo Capítulo ❯</button>
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 2 -->
+            <div id="cap2" class="chapter-view">
+                <div class="chapter-header">
+                    <span class="chapter-num">Capítulo II</span>
+                    <h2 class="chapter-title">A Queda dos Vigilantes e de Azazel</h2>
+                </div>
+
+                <div class="chapter-body">
+                    <p class="no-indent">
+                        O <em>Livro dos Vigilantes</em> (capítulos 6 a 36 de 1 Enoque) narra o evento mais dramático e
+                        catastrófico do mundo antediluviano: a rebelião dos <strong>Grigori</strong> (Vigilantes ou
+                        Sentinelas). Estes eram anjos de alta hierarquia encarregados por Deus de observar a criação
+                        física. Contudo, ao contemplarem a beleza das filhas dos homens, foram tomados pela cobiça.
+                    </p>
+
+                    <p>
+                        Liderados por <strong>Samyaza</strong> e por seu influente co-líder <strong>Azazel</strong>,
+                        duzentos desses Vigilantes conspiraram para abandonar suas habitações celestes. Reuniram-se no
+                        cume do <strong>Monte Hermon</strong> (cujo nome em hebraico deriva de <em>Cherem</em>,
+                        significando "maldição" ou "compromisso sob juramento"), onde realizaram um pacto solene de
+                        cumplicidade mútua, cientes da gravidade do pecado que cometeriam ao misturar o espiritual com o
+                        carnal.
+                    </p>
+
+                    <div class="quote-box">
+                        <p>"Então Samyaza disse-lhes: 'Temo que não queirais cumprir esta ação, e eu sozinho pagarei
+                            pelo castigo de um grande pecado'. Mas todos responderam: 'Façamos todos um juramento e nos
+                            comprometamos sob maldições a não recuar deste projeto até executá-lo'."</p>
+                        <div class="quote-author">1 Enoque 6:3-5</div>
+                    </div>
+
+                    <h3>A Geração dos Nephilim</h3>
+                    <p>
+                        A transgressão dos Vigilantes rebeldes gerou uma contaminação biológica e moral profunda no
+                        mundo antediluviano. A união carnal entre os anjos rebeldes e as filhas dos homens resultou no
+                        nascimento dos <strong>Nephilim</strong>, gigantes de estatura colossal e força sobre-humana
+                        (medindo entre 7 e 10 metros, com relatos hiperbólicos citando estaturas ainda maiores).
+                        Desprovidos de alma humana e tomados por apetites insaciáveis, os gigantes consumiram toda a
+                        subsistência humana da terra. Quando os recursos agrícolas se extinguiram, passaram a caçar e a
+                        devorar os próprios homens, espalhando uma onda de violência, destruição e derramamento de
+                        sangue indiscriminado.
+                    </p>
+
+                    <h3>A Profanação do Conhecimento</h3>
+                    <p>
+                        Além da contaminação biológica, os Vigilantes transmitiram à humanidade saberes sagrados
+                        celestiais que foram desvirtuados para a maldade e orgulho material. Estes ensinamentos
+                        proibidos dividem-se em cinco grandes áreas de influência corrompedora:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Metalurgia e Tecnologia:</strong> Azazel e Asael revelaram como extrair os metais
+                            das profundezas da terra e trabalhá-los, iniciando a manipulação tecnológica de elementos
+                            que deveriam jazer ocultos.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Armamento e Arte Militar:</strong> Gadreel e Azkeel ensinaram a forjar espadas,
+                            facas, escudos e armaduras de metal, introduzindo golpes de morte e a guerra sistematizada
+                            entre a progênie dos homens.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Vaidade, Luxo e Comércio:</strong> Zavebe e Azazel introduziram as artes dos
+                            cosméticos (uso de antimônio nas pálpebras), o embelezamento das sobrancelhas, a lapidação
+                            de pedras preciosas, ornamentos luxuosos e a cobiça pelo comércio de riquezas.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Magia, Bruxaria e Ervanária:</strong> Samyaza e Armaros ensinaram sortilégios,
+                            encantamentos, magia negra, o preparo de ervas medicinais/mágicas e a manipulação de
+                            fórmulas mágicas para interferir na ordem natural.
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>Presságios e Ciências Naturais:</strong> Kokabiel, Tamiel, Akibeel e Ananel
+                            ensinaram a ler o curso dos corpos celestes, astronomia, os signos do céu e das estrelas, os
+                            tremores de terra e a meteorologia (aparição de nuvens e chuva) com objetivos divinatórios
+                            egoístas.
+                        </li>
+                    </ul>
+
+                    <div class="chapter-illustration">
+                        <img src="assets/anjos_caidos_hermon.png" alt="A Queda dos Vigilantes no Monte Hermon">
+                        <div class="illustration-caption">
+                            <strong>Figura 2.1:</strong> A descida dos 200 anjos rebeldes sobre o Monte Hermon,
+                            alterando para sempre a história terrestre.
+                        </div>
+                    </div>
+
+                    <!-- INTERACTIVE WATCHERS CODEX -->
+                    <h3 style="margin-top: 3rem;">O Códice dos Vigilantes (Interativo)</h3>
+                    <p class="no-indent" style="font-size: 0.95rem; color: var(--color-text-muted);">
+                        Selecione um dos líderes rebeldes na lista abaixo para ler os nomes hebraicos, os ensinamentos
+                        proibidos que trouxeram aos homens e o julgamento decretado por Deus:
+                    </p>
+
+                    <div class="watchers-codex">
+                        <ul class="watchers-list" id="watchers-list-el">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                        <div class="watcher-details-box" id="watcher-details-el">
+                            <div class="codex-empty-state">
+                                <p>Clique em um Vigilante para revelar seus mistérios...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Diferenças Teológicas: Lúcifer vs. Azazel</h3>
+                    <p>
+                        Na tradição teológica cristã posterior, Lúcifer é descrito como o querubim orgulhoso que se
+                        revoltou no céu antes da criação física e foi precipitado para reinar sobre o inferno. O Livro
+                        de Enoque, porém, introduz <strong>Azazel</strong> e os Vigilantes em uma dinâmica diferente:
+                        eles desceram voluntariamente à terra <em>após</em> a criação humana, impulsionados pela cobiça
+                        física e vaidade. Azazel corrompe a humanidade não por possessão espiritual silenciosa, mas pela
+                        profanação tecnológica e epistemológica (tecnologia de guerra, ornamentos, maquiagem). Ao fim,
+                        ele não é o governante de um inferno ativo, mas jaz acorrentado e soterrado nas trevas de
+                        Dudael, esperando sua destruição final pelo fogo.
+                    </p>
+
+                    <h3>O Ritual de Azazel e o Yom Kippur</h3>
+                    <p>
+                        Na teologia enoquiana, Azazel assume o papel de arqui-corruptor absoluto, sendo decretado que
+                        <em>"toda injustiça e pecado sobre a terra sejam atribuídos a Azazel"</em>. Para conter essa
+                        infecção moral, Deus ordenou ao arcanjo Rafael que amarrasse Azazel de mãos e pés e o lançasse
+                        no deserto de <strong>Dudael</strong>, cobrindo-o de pedras ásperas e escuridão eterna.
+                    </p>
+                    <p>
+                        Esse aprisionamento serve de base teológica para o ritual do <strong>Yom Kippur</strong> (Dia do
+                        Perdão) em Levítico 16. Os dois bodes do templo — um oferecido ao Senhor e o outro enviado ao
+                        deserto como "bode expiatório" dedicado <em>a Azazel</em> — representam a devolução simbólica do
+                        pecado do povo de Israel à sua verdadeira fonte ancestral, aprisionada nas trevas do abismo
+                        desolado.
+                    </p>
+                </div>
+
+                <div class="chapter-footer-nav">
+                    <button class="btn-nav-page" data-prev="cap1">❮ Anterior</button>
+                    <button class="btn-nav-page" data-next="cap3">Próximo Capítulo ❯</button>
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 3 -->
+            <div id="cap3" class="chapter-view">
+                <div class="chapter-header">
+                    <span class="chapter-num">Capítulo III</span>
+                    <h2 class="chapter-title">A Jornada Mística pelos Dez Céus</h2>
+                </div>
+
+                <div class="chapter-body">
+                    <p class="no-indent">
+                        O <em>Segundo Livro de Enoque</em> (versão eslava) oferece um dos roteiros cosmológicos mais
+                        detalhados do misticismo primitivo ao narrar a ascensão de Enoque através das dez esferas ou
+                        camadas celestes. Guiado por dois anjos de aparência indescritível e reluzente, o escriba humano
+                        atravessou as barreiras físicas da Terra para testemunhar o funcionamento das forças invisíveis
+                        do universo.
+                    </p>
+
+                    <p>
+                        Esta viagem não representa apenas uma travessia espacial, mas uma jornada de purificação da
+                        própria consciência. Em cada céu, Enoque confronta mistérios astrológicos, o tormento de seres
+                        que violaram a harmonia cósmica e a adoração radiante das hostes que sustentam o trono divino.
+                    </p>
+
+                    <h3>A Escada de Luz dos Céus (Interativo)</h3>
+                    <p class="no-indent"
+                        style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+                        Explore cada uma das 10 camadas celestes descritas por Enoque. Clique em um céu para desvendar
+                        suas características, seus guardiões e os segredos espirituais contidos nele:
+                    </p>
+
+                    <!-- HEAVENS LADDER INTERACTIVE -->
+                    <div class="heavens-ladder" id="heavens-ladder-el">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <h3>Paralelos nos Sistemas Iniciáticos</h3>
+                    <p>
+                        A estrutura das 10 esferas celestes descrita nos textos enoquianos possui correspondências
+                        profundas com outros caminhos de misticismo comparado da humanidade:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>A Árvore da Vida Cabalística:</strong> As 10 camadas celestes refletem perfeitamente
+                            as 10 <em>Sefiroth</em> (emanações divinas), constituindo uma escada geométrica espiritual
+                            que o iniciado percorre desde o plano material de <em>Malkuth</em> até a coroa divina de
+                            <em>Kether</em>.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Os Centros de Energia (Yoga):</strong> A subida enoquiana espelha o despertar da
+                            energia <em>Kundalini</em>, que ascende pelos centros vitais (chakras) do corpo sutil até a
+                            coroação espiritual no <em>Sahasrara</em> (o lótus de mil pétalas no topo da cabeça).
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>O Sufismo Islâmico:</strong> A jornada através das esferas celestes assemelha-se ao
+                            percurso místico das estações da alma (*maqamat*), que culmina no aniquilamento do ego
+                            (*Fana*) na presença gloriosa do Amado.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>O Taoismo de Alquimia Interna:</strong> O retorno progressivo à energia primordial
+                            não-criada (*Wuji*), desfazendo as amarras da matéria passo a passo.
+                        </li>
+                    </ul>
+
+                    <h3>Os Céus como Níveis de Consciência</h3>
+                    <p>
+                        Sob uma ótica psicológica e esotérica, a jornada de Enoque pelas camadas celestes é uma
+                        representação da elevação progressiva da consciência humana:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Céus Inferiores (1º ao 3º):</strong> A
+                            conscientização ética. A alma percebe que está sob observação divina (1º), confronta o
+                            tormento da desobediência e as consequências kármicas (2º), e se depara com a dualidade
+                            extrema e livre-arbítrio entre a luz do Paraíso e a dor do Inferno (3º).</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Céus Intermediários (4º ao 6º):</strong> O
+                            entendimento da harmonia cósmica. O iniciado aprende a ordem matemática e astronômica do
+                            universo (4º), integra a melancolia existencial dos Vigilantes arrependidos através da
+                            liturgia (5º), e compreende a hierarquia divina e a ordem social administrada pelos arcanjos
+                            (6º).</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Céus Superiores (7º ao 10º):</strong> A dissolução
+                            mística. A alma entra no limiar do fogo sagrado (7º), contempla as estrelas fixas do tempo
+                            em Muzaloth (8º), acessa os arquétipos atemporais da criação primordial (9º) e atinge a
+                            completa deificação (transformação em Metatron) no Trono de Glória (10º).</li>
+                    </ul>
+
+                    <h3>A Estrutura Geométrica do Cosmos</h3>
+                    <p>
+                        A cosmologia de Enoque não é apenas descritiva, mas rigorosamente geométrica. O universo é retratado como uma série de círculos concêntricos em torno do Trono Divino, com uma simetria micro-macrocósmica. Há 12 portais celestes dispostos nas quatro direções cardeais, determinando as saídas e entradas do Sol, da Lua e dos ventos. A recorrência de números sagrados como 3, 7 e 12 estabelece um padrão de harmonia e proporção que conecta a criação à mente matemática de Deus.
+                    </p>
+
+                    <h3>Os Corpos Celestes como Seres Inteligentes</h3>
+                    <p>
+                        Diferente do mecanicismo moderno, a astronomia descrita no <em>Livro Astronômico</em> (1 Enoque 72-82) atribui vida e consciência aos corpos celestes. O Sol, a Lua e as Estrelas não são esferas inertes, mas seres espirituais vivos governados por arcanjos e príncipes celestes. O Sol tem seu ciclo solar solar administrado por Rafael, enquanto a Lua e suas fases para a contagem do tempo são conduzidas sob a égide de Uriel. Cada constelação possui um regente angelical que garante que nenhum astro saia de seu curso ordenado por Deus.
+                    </p>
+                </div>
+
+                <div class="chapter-footer-nav">
+                    <button class="btn-nav-page" data-prev="cap2">❮ Anterior</button>
+                    <button class="btn-nav-page" data-next="cap4">Próximo Capítulo ❯</button>
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 4 -->
+            <div id="cap4" class="chapter-view">
+                <div class="chapter-header">
+                    <span class="chapter-num">Capítulo IV</span>
+                    <h2 class="chapter-title">O Clamor e a Conexão com o Dilúvio</h2>
+                </div>
+
+                <div class="chapter-body">
+                    <p class="no-indent">
+                        O dilúvio global descrito na narrativa bíblica de Gênesis ganha uma justificativa muito mais
+                        complexa e cosmológica no Livro de Enoque. Em vez de ser apenas um castigo punitivo de ordem
+                        moral para a humanidade, o Dilúvio é revelado como uma **operação de resgate e reset cirúrgico**
+                        necessária para purificar a biosfera terrestre da infecção espiritual e hibridização provocada
+                        pelos Vigilantes caídos.
+                    </p>
+
+                    <h3>O Ciclo de Iniquidade e Violência</h3>
+                    <p>
+                        A introdução de artes de guerra, magia profana, vaidade desmedida e a presença destrutiva dos
+                        gigantes Nephilim criaram um ciclo insustentável. Os Nephilim dizimaram os recursos agrícolas,
+                        caçaram homens e animais e derramaram rios de sangue. O clamor das almas dos mortos e dos
+                        oprimidos na terra subiu ao reino celestial. Ouvindo esse lamento desesperado, os arcanjos
+                        Miguel, Gabriel, Rafael e Uriel apresentaram uma queixa solene e formal diante do Trono Divino,
+                        implorando pela intervenção da justiça cósmica.
+                    </p>
+
+                    <div class="quote-box">
+                        <p>"E as almas dos homens que morreram clamaram, dizendo: 'Levai o nosso julgamento ao Senhor
+                            Altíssimo!'. E Rafael e Miguel disseram a Deus: 'Tu vês o que Azazel fez... como Shemikhazah
+                            ensinou a magia... A terra toda está cheia de sangue e de injustiça'."</p>
+                        <div class="quote-author">1 Enoque 9:3, 9-10</div>
+                    </div>
+
+                    <h3>As Quatro Razões Teológicas do Dilúvio</h3>
+                    <p>
+                        Os escritos enoquianos detalham quatro razões imperativas pelas quais o cataclismo foi
+                        decretado:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Limpeza e Purificação:</strong> A necessidade urgente de livrar a terra da
+                            contaminação biológica dos Nephilim e limpar o solo do sangue derramado.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Punição Indireta:</strong> Trazer dor aos pais caídos (Vigilantes) ao testemunharem
+                            a aniquilação física de todos os seus filhos gigantes.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Reset Epistemológico:</strong> Eliminar as tecnologias perigosas (como o forjamento
+                            de armas de destruição em massa) que a humanidade aprendeu e usava para sua autoaniquilação.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Garantia de Sobrevivência:</strong> Interromper o processo de destruição antes que
+                            os Nephilim consumissem toda a humanidade, extinguindo a linhagem dos justos.
+                        </li>
+                    </ul>
+
+                    <h3>A Sentença e o Evento Cósmico</h3>
+                    <p>
+                        Diante da queixa angélica, Deus ordenou que o arcanjo Uriel fosse até Noé para instruí-lo sobre
+                        a destruição iminente e o segredo de sua salvação. O Dilúvio enoquiano não é retratado como mera
+                        chuva prolongada, mas como uma convulsão cósmica na qual as comportas celestes cuspiram fogo e
+                        as placas tectônicas subterrâneas se agitaram, sacudindo as fundações da criação para purificar
+                        a terra em suas raízes físicas.
+                    </p>
+
+                    <div class="chapter-illustration">
+                        <img src="assets/anjos_caidos_hermon.png" alt="O Dilúvio e a Punição">
+                        <div class="illustration-caption">
+                            <strong>Figura 4.1:</strong> A destruição da era antediluviana como consequência direta da
+                            desobediência angélica.
+                        </div>
+                    </div>
+
+                    <h3>Noé: Salvação Material vs. Ascensão Espiritual</h3>
+                    <p>
+                        Existe um paralelo e contraste fascinante na teologia enoquiana entre Noé (bisneto) e Enoque
+                        (bisavô):
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Noé (Salvação Material):</strong> Permaneceu humano em essência física, recebeu
+                            instruções práticas terrestres para construir a Arca e garantir a preservação da biologia
+                            terrestre pós-diluviana.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Enoque (Ascensão Espiritual):</strong> Foi elevado dos planos terrestres antes do
+                            Dilúvio, teve seu corpo imortalizado em chamas de luz e tornou-se Metatron para servir de
+                            testemunha e registrador eterno dos atos cósmicos.
+                        </li>
+                    </ul>
+
+                    <h3>A Nova Humanidade e a Dispersão</h3>
+                    <p>
+                        Com a salvação de Noé e sua família na Arca, a humanidade recomeçou a partir de uma genética
+                        livre de hibridização e desprovida de conhecimentos belicosos profanos. Seus três filhos
+                        originaram as correntes civilizacionais do mundo pós-diluviano:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>Sem (Os Semitas):</strong> Herdeiro das chaves espirituais e monoteísmo devocional.
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>Cam (Os Povos do Sul/África):</strong> Marcado pelas transgressões morais e
+                            complexos desafios éticos.
+                        </li>
+                        <li style="margin-bottom: 0.5rem;">
+                            <strong>Jafé (Os Povos do Norte/Ocidente):</strong> Responsável pela expansão geográfica e
+                            territorial.
+                        </li>
+                    </ul>
+                    <p>
+                        Para evitar que a maldade humana ganhasse o mesmo poder tecnológico e vitalício de antes, a
+                        longevidade dos patriarcas foi reduzida drasticamente dos milênios antediluvianos para o limite
+                        aproximado de 100 anos, fragmentando e enfraquecendo a consolidação do pecado ao longo das
+                        gerações.
+                    </p>
+                </div>
+
+                <div class="chapter-footer-nav">
+                    <button class="btn-nav-page" data-prev="cap3">❮ Anterior</button>
+                    <button class="btn-nav-page" data-next="cap5">Próximo Capítulo ❯</button>
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 5 -->
+            <div id="cap5" class="chapter-view">
+                <div class="chapter-header">
+                    <span class="chapter-num">Capítulo V</span>
+                    <h2 class="chapter-title">A Transformação no Trono de Metatron</h2>
+                </div>
+
+                <div class="chapter-body">
+                    <p class="no-indent">
+                        O ápice absoluto do misticismo apócrifo ocorre no <em>Terceiro Livro de Enoque</em>, que relata
+                        a apoteose e a transfiguração final do escriba antediluviano. Ao adentrar a décima esfera
+                        (Aravoth, a morada do Trono), Deus decreta que o humano justo seja transmutado na maior
+                        autoridade angélica da corte celestial: <strong>Metatron, o Príncipe da Presença</strong>.
+                    </p>
+
+                    <h3>As Quatro Fases da Transmutação Celestial</h3>
+                    <p>
+                        O processo de metamorfose física e espiritual de Enoque é detalhado em quatro fases sucessivas:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Fase 1: O Arrebatamento:</strong> Dois anjos luminosos, cujos rostos brilhavam como
+                            o Sol e cujas bocas emitiam chamas de fogo, elevam Enoque do plano material nas nuvens.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Fase 2: A Purificação:</strong> Ao alcançar o Trono, o arcanjo Miguel recebe a ordem
+                            divina de despojar Enoque de suas vestes terrenas e unge seu corpo com óleo celestial de
+                            glória.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Fase 3: A Reconstituição Ígnea:</strong> A própria matéria biológica de Enoque se
+                            funde. Sua carne é convertida em chamas vivas, suas veias em fogo líquido, seus cílios em
+                            relâmpagos e seus globos oculares em tochas de fogo ardente.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Fase 4: A Coroação:</strong> Deus coloca uma coroa régia em Metatron, concede-lhe
+                            setenta asas cobertas de olhos, setenta nomes de glória e estabelece seu trono próximo ao
+                            Trono Celestial.
+                        </li>
+                    </ul>
+
+                    <div class="quote-box">
+                        <p>"Este é Enoque, cuja carne se converteu em chamas, suas veias em fogo, seus cílios em
+                            relâmpagos, seus globos oculares em tochas flamejantes, e a quem Deus colocou em um trono
+                            próximo ao trono de glória... recebendo após esta transformação o nome Metatron."</p>
+                        <div class="quote-author">3 Enoque 48:9</div>
+                    </div>
+
+                    <h3>Etimologia e Nome Sagrado</h3>
+                    <p>
+                        A etimologia do nome <strong>Metatron</strong> reflete sua singularidade. Estudiosos debatem
+                        três origens principais:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Meta-thronos (Grego):</strong> Aquele que serve ao
+                            lado ou atrás do trono divino, indicando sua posição imediatamente subordinada a Deus.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Metator (Latim):</strong> O guia, metrificador ou
+                            demarcador de limites cósmicos, representando sua função de mensageiro e organizador das
+                            esferas.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Synthronos:</strong> Aquele que co-ocupa ou
+                            compartilha da autoridade da corte celestial (às vezes apelidado nos textos místicos como "O
+                            Pequeno YHWH").</li>
+                    </ul>
+
+                    <div class="chapter-illustration">
+                        <img src="assets/metatron_trono_fogo.png" alt="A Transformação em Metatron">
+                        <div class="illustration-caption">
+                            <strong>Figura 5.1:</strong> Metatron, o anjo de fogo supremo e Escriba da Presença
+                            Celestial.
+                        </div>
+                    </div>
+
+                    <h3>As Trezentas Mil Portas de Luz</h3>
+                    <p>
+                        Após a transmutação, Deus abre a Metatron trezentas mil portas contendo atributos divinos em
+                        escala exponencial: portas de sabedoria, vida, compreensão, misericórdia, força, lei, luz, graça
+                        e beleza. O texto de 3 Enoque relata que Deus duplicou em Metatron todo atributo virtuoso,
+                        coroando-o com a plenitude do saber atemporal do cosmos.
+                    </p>
+
+                    <!-- METATRON CUBE INTERACTIVE SVG -->
+                    <h3>O Cubo de Metatron e os Portões de Sabedoria (Interativo)</h3>
+                    <p class="no-indent"
+                        style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+                        O Cubo de Metatron é um dos símbolos mais poderosos da geometria sagrada antiga, representando a
+                        estrutura atômica do universo. Clique nos nós do selo geométrico para abrir os <strong>Portões
+                            de Sabedoria</strong> concedidos a Metatron por Deus:
+                    </p>
+
+                    <div class="metatron-module">
+                        <div class="cube-interactive-container">
+                            <svg class="cube-svg-interactive" viewBox="0 0 320 320" id="cube-svg">
+                                <!-- Lines connecting all 13 points will be drawn by JS for interactivity -->
+                                <g id="cube-lines"></g>
+                                <g id="cube-nodes">
+                                    <!-- Nodes will be populated by JS -->
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="gate-revelation-card" id="gate-card-el">
+                            <div class="gate-empty-state">
+                                <p>Clique em um dos 13 nós de luz do Cubo para receber revelações da Presença...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>A Merkabah: O Trono Móvel de Luz</h3>
+                    <p>
+                        Como Príncipe da Presença, Metatron tem a incumbência suprema de reger e guardar a
+                        <strong>Merkabah</strong> (a carruagem celestial divina móvel). Feita de chamas de fogo
+                        adamantino e propulsionada por Querubins, Serafins e Ofanins, ela representa a carruagem do
+                        próprio Trono do Altíssimo que cruza as dimensões cósmicas. Metatron serve como o escriba
+                        definitivo que se assenta na Merkabah para documentar todas as ações da humanidade e dos anjos
+                        menores, preservando o equilíbrio nos limites entre o infinito espiritual e a matéria finita.
+                    </p>
+
+                    <h3>Os Poderes de Metatron e Seus Setenta Nomes</h3>
+                    <p>
+                        Como Príncipe da Presença, Metatron detém quatro grandes esferas de poder cósmico. O <strong>Poder Cosmológico</strong> permite-lhe governar o movimento das esferas e sustentar a matéria criada. O <strong>Poder Angelical</strong> concede-lhe o comando sobre todas as hostes e ordens celestes. O <strong>Poder Espiritual</strong> confere-lhe a onisciência sobre as almas humanas e o registro das ações no livro divino. E o seu <strong>Poder de Transfiguração</strong> permite-lhe assumir múltiplas formas para atuar como intermediário direto do Altíssimo. Para exercer tais atribuições, Deus conferiu a Metatron setenta nomes de manifestação espiritual (como Yofiel, Anafiel e Yaoel), cada um refletindo um atributo específico da governança cósmica.
+                    </p>
+
+                    <h3>O Paradoxo Cristológico e Tensão Teológica</h3>
+                    <p>
+                        A figura de Metatron na literatura rabínica medieval (Merkavah e Hekhalot) gerou uma forte tensão teológica. Sua proximidade extraordinária ao Criador e a posse de um trono próximo ao Trono de Glória fizeram com que algumas correntes interpretativas místicas o considerassem uma "Segunda Divindade" ou o "Pequeno YHWH". Tradições cristãs posteriores traçaram paralelos entre a metamorfose de Enoque em Metatron e o conceito do Logos divino ou a figura do Messias encarnado. No entanto, para a ortodoxia judaica e o misticismo cabalístico, Metatron permanece estritamente como a mais alta criatura angelical e vicário do Senhor, servindo como uma ponte, mas nunca dividindo a essência do Deus Único.
+                    </p>
+                </div>
+
+                <div class="chapter-footer-nav">
+                    <button class="btn-nav-page" data-prev="cap4">❮ Anterior</button>
+                    <button class="btn-nav-page" data-next="cap6">Próximo Capítulo ❯</button>
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 6 -->
+            <div id="cap6" class="chapter-view">
+                <div class="chapter-header">
+                    <span class="chapter-num">Capítulo VI</span>
+                    <h2 class="chapter-title">Biblioteca de Citações e Sabedoria</h2>
+                </div>
+
+                <div class="chapter-body">
+                    <p class="no-indent">
+                        Os Livros de Enoque são ricos em ensinamentos, exortações éticas e profecias. A preservação
+                        destas passagens serve como um repositório de sabedoria antiga para aqueles que buscam a
+                        compreensão dos mistérios cosmológicos e espirituais.
+                    </p>
+                    <p>
+                        Abaixo, você encontrará o banco de citações traduzido de manuscritos antigos. Utilize o buscador
+                        e os filtros por temas para selecionar os conselhos, avisos e revelações do escriba celestial.
+                    </p>
+
+                    <!-- SEARCH & FILTER SYSTEM -->
+                    <div class="library-search-bar">
+                        <input type="text" id="library-search-input" class="input-celestial"
+                            placeholder="Pesquisar citações (ex: Vigilantes, Luz, Fogo, Sabedoria)...">
+                    </div>
+
+                    <div class="library-tags">
+                        <button class="tag-btn active" data-tag="all">Todos</button>
+                        <button class="tag-btn" data-tag="queda">Queda dos Anjos</button>
+                        <button class="tag-btn" data-tag="ascensao">Ascensão</button>
+                        <button class="tag-btn" data-tag="julgamento">Julgamento</button>
+                        <button class="tag-btn" data-tag="sabedoria">Sabedoria</button>
+                        <button class="tag-btn" data-tag="filho">Filho do Homem</button>
+                    </div>
+
+                    <div class="quotes-results-grid" id="quotes-grid-el">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="chapter-footer-nav">
+                    <button class="btn-nav-page" data-prev="cap5">❮ Anterior</button>
+                    <button class="btn-nav-page" data-next="cap7">Próximo Capítulo ❯</button>
+                </div>
+            </div>
+
+            <!-- CAPÍTULO 7 -->
+            <div id="cap7" class="chapter-view">
+                <div class="chapter-header">
+                    <span class="chapter-num">Capítulo VII</span>
+                    <h2 class="chapter-title">Simbologia Enoquiana e Aplicações Místicas</h2>
+                </div>
+
+                <div class="chapter-body">
+                    <p class="no-indent">
+                        Os textos enoquianos criaram a fundação para os mais complexos sistemas simbólicos e esotéricos da civilização ocidental e oriental. Ao decifrar o códice enoquiano, confrontamos símbolos arquetípicos universais de ordem cósmica, transição de consciência e reintegração espiritual.
+                    </p>
+
+                    <h3>A Merkabah: O Trono Móvel como Dínamo Cósmico</h3>
+                    <p>
+                        A carruagem divina ou <strong>Merkabah</strong> descrita por Enoque (e posteriormente detalhada na visão do profeta Ezequiel) não é apenas um veículo de glória, mas sim o próprio dínamo cósmico que sustenta a realidade criada. Ela representa a manifestação ativa da vontade inefável de Deus no plano da manifestação física. A carruagem é descrita como sendo feita de fogo adamantino e metal incandescente, movida por rodas de olhos vivos e querubins, simbolizando que a criação divina é dinâmica, consciente e ordenada geometricamente.
+                    </p>
+
+                    <h3>Os Quatro Querubins e as Direções Cardeais</h3>
+                    <p>
+                        A manifestação da divindade única (Deus) expressa-se de forma quadrangular através dos quatro Querubins que sustentam a Merkabah, estabelecendo uma simetria cosmológica universal:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Leste (A Face de Homem):</strong> Correspondente ao elemento Ar, representa a razão, a sabedoria, o intelecto e a revelação do logos divino.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Oeste (A Face de Leão):</strong> Correspondente ao elemento Fogo, simboliza a força, o poder ativo, a vontade inflexível e a execução da severidade divina.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Norte (A Face de Boi):</strong> Correspondente ao elemento Terra, representa a estabilidade, a materialidade física, a constância e a encarnação divina na matéria sólida.
+                        </li>
+                        <li style="margin-bottom: 0.8rem;">
+                            <strong>Sul (A Face de Águia):</strong> Correspondente ao elemento Água, simboliza o fluxo emocional, as águas celestes, a adaptabilidade e o poder da transformação espiritual.
+                        </li>
+                    </ul>
+
+                    <h3>A Árvore da Vida e os Portões Celestiais</h3>
+                    <p>
+                        A árvore sagrada descrita por Enoque no meio do Éden (cujo tronco chega aos céus e cujas raízes alcançam as profundezas) é a representação do <strong>Axis Mundi</strong> (o Eixo do Mundo), que conecta os planos materiais aos transcendentais. Esta imagem inspirou a posterior Árvore da Vida Cabalística, cujas dez Sefiroth servem como degraus para a reintegração espiritual. Da mesma forma, os múltiplos portais cruzados por Enoque em sua ascensão não são apenas passagens geográficas, mas sim <em>transições de nível de consciência</em>, onde o escriba precisa passar por purificação e calibração por mentores angelicais antes de suportar a intensidade das esferas superiores.
+                    </p>
+
+                    <h3>O Simbolismo de Luz e Fogo</h3>
+                    <p>
+                        Diferente de sistemas alquímicos onde o fogo é destrutivo e a luz é puramente intelectual, nos textos apócrifos eles são duas faces da mesma substância divina: o <strong>fogo celestial</strong> purifica as escórias da matéria sem consumir a essência (o fogo sagrado do Trono), enquanto a <strong>luz incognoscível</strong> ilumina os olhos da alma permitindo a compreensão (Gnosis) dos decretos cósmicos eternos.
+                    </p>
+
+                    <h3>John Dee e o Mal-entendido da "Magia Enoquiana"</h3>
+                    <p>
+                        No século XVI, o sábio renascentista John Dee (matemático e astrônomo da Rainha Elizabeth I) e o vidente Edward Kelley desenvolveram um sistema de evocação que batizaram de <em>"Magia Enoquiana"</em>, contendo uma língua própria (o idioma angélico ou enoquiano), tabuleiros quadrangulares e chamadas mágicas para evocar anjos e explorar trinta esferas chamadas <em>Aethyrs</em>. 
+                    </p>
+                    <p>
+                        Embora Dee fosse influenciado pelos manuscritos apócrifos e pela teurgia da literatura de Merkavah, é importante ressaltar que a Magia Enoquiana da Renascença é um <strong>sistema operativo inteiramente novo</strong>. O Livro de Enoque original <em>não é um grimório operativo</em>: ele não ensina invocações para obter poder pessoal, conjurar espíritos ou realizar milagres terrestres. O texto original é puramente cosmológico, ético e contemplativo. O seu objetivo não é manipular a criação por meio da magia, mas sim compreender a vontade criadora de Deus e elevar a alma por meio da comunhão interna.
+                    </p>
+
+                    <h3>A Iniciação Enoquiana e Correspondências Universais</h3>
+                    <p>
+                        A jornada de Enoque serve como o protótipo de todos os caminhos iniciáticos de autoperfeição espiritual da humanidade. O escriba atravessa três fases universais: a <strong>Inocência/Ignorância</strong> (Enoque como homem justo e comum), a <strong>Revelação/Iniciação</strong> (arrebatamento e travessia dos céus com mentores angelicais), e a <strong>Deificação/Metatronização</strong> (conversão final em corpo de luz). Este modelo encontra paralelos perfeitos em outros sistemas:
+                    </p>
+                    <ul style="margin-left: 2rem; margin-bottom: 2rem;">
+                        <li style="margin-bottom: 0.5rem;"><strong>Maçonaria:</strong> Os graus de ascensão espiritual e a transição do templo material para a construção do templo interno da alma.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Sufismo:</strong> As sete estações místicas da jornada (*maqamat*), terminando no aniquilamento e fusão com o Amado Divino (*Fana*).</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Yoga e Kundalini:</strong> O despertar do fogo interior que sobe pelos chakras até atingir a união com o cosmos no topo da cabeça.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Alquimia Interna:</strong> O processo iterativo de purificação e sublimação da matéria até a obtenção da Pedra Filosofal (o corpo imortal de luz).</li>
+                    </ul>
+
+                    <h3>Aplicações Contemplativas (Práticas de Meditação)</h3>
+                    <p>
+                        Para vivenciar o misticismo enoquiano de forma segura e legítima, as tradições antigas sugerem práticas puramente contemplativas focadas na interiorização e na expansão mental:
+                    </p>
+                    <div style="background: rgba(212, 175, 55, 0.05); padding: 1.5rem; border-radius: 8px; border: var(--border-gold); margin-bottom: 2rem;">
+                        <strong>Prática 1: Visualização Progressiva dos Céus</strong>
+                        <p style="margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 0.95rem; text-indent: 0;">
+                            Sentado em postura confortável de meditação, respire suavemente. Imagine sua consciência ascendendo gradativamente:
+                        </p>
+                        <ol style="margin-left: 2rem; font-size: 0.9rem;">
+                            <li><strong>1º Céu (Estrelas):</strong> Sinta que seu corpo físico é parte integrante da matéria cósmica e dos ciclos da natureza.</li>
+                            <li><strong>2º Céu (Confronto):</strong> Observe seus pensamentos e tendências inferiores sem julgamento, reconhecendo a necessidade de ordená-los.</li>
+                            <li><strong>3º Céu (Luz e Sombra):</strong> Visualize a divisão entre o paraíso interior da paz e os abismos das dores mentais, escolhendo deliberadamente assentar-se na harmonia.</li>
+                            <li><strong>4º a 7º Céus (Louvor e Presença):</strong> Deixe que sua mente seja preenchida pelo silêncio profundo e pela luz dourada inextinguível do Trono interno.</li>
+                        </ol>
+                    </div>
+
+                    <div style="background: rgba(212, 175, 55, 0.05); padding: 1.5rem; border-radius: 8px; border: var(--border-gold); margin-bottom: 2rem;">
+                        <strong>Prática 2: Meditação na Transformação de Fogo</strong>
+                        <p style="margin-top: 0.5rem; margin-bottom: 0.5rem; font-size: 0.95rem; text-indent: 0;">
+                            Contemple o mistério de Metatron: de homem mortal a anjo de fogo. Questione-se internamente: <em>"Quais ilusões da minha personalidade terrena precisam ser consumidas pelo fogo da verdade para que minha verdadeira essência luminosa seja revelada?"</em>. Deixe que a resposta surja como um estado de silêncio e percepção imediata.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="chapter-footer-nav">
+                    <button class="btn-nav-page" data-prev="cap6">❮ Anterior</button>
+                    <span></span>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- CELESTIAL HEAVEN DETAIL MODAL -->
+    <div class="modal-overlay" id="heaven-modal-el">
+        <div class="modal-card glass-panel">
+            <button class="modal-close" id="btn-close-modal">&times;</button>
+            <h3 class="modal-heaven-title" id="modal-title-el">Primeiro Céu</h3>
+            <div class="modal-heaven-concept" id="modal-concept-el">Vigilância Cósmica</div>
+            <div class="modal-heaven-body" id="modal-desc-el">
+                <!-- Detailed description populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
