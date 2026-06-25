@@ -57,6 +57,16 @@ body {
     pointer-events: none;
 }
 
+.cover-descrition {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .stars-particles {
     position: fixed;
     top: 0;
@@ -193,11 +203,37 @@ h5 {
 /* Capa */
 .cover-container {
     max-width: 800px;
-    height: 100%;
+    height: auto;
+    max-height: 100%;
     text-align: center;
     padding: 3.5rem 2rem;
     position: relative;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold-dark) rgba(0, 0, 0, 0.2);
+}
+
+.cover-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cover-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.cover-container::-webkit-scrollbar-thumb {
+    background: var(--color-gold-dark);
+    border-radius: 10px;
+}
+
+.cover-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold);
 }
 
 /* Capa: Imagem Decorativa e Selo */
@@ -313,6 +349,94 @@ h5 {
 
 .btn-celestial:active {
     transform: translateY(-1px);
+}
+
+/* Ajustes responsivos para telas de menor altura (viewport height) */
+@media (max-height: 850px) {
+    .cover-container {
+        padding: 2.5rem 2rem;
+    }
+    .cover-title {
+        font-size: 2.8rem;
+    }
+    .cover-subtitle {
+        margin: 0.75rem auto 1.5rem auto;
+    }
+    .cover-img-wrapper {
+        width: 200px;
+        height: 275px;
+        margin-bottom: 1.25rem;
+    }
+    .seal-wrapper {
+        width: 75px;
+        height: 75px;
+        margin: 0.75rem auto;
+    }
+    .cover-descrition {
+        margin-bottom: 1.5rem;
+    }
+    .btn-celestial {
+        padding: 0.85rem 2.2rem;
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-height: 680px) {
+    .cover-container {
+        padding: 1.75rem 1.5rem;
+    }
+    .cover-title {
+        font-size: 2.3rem;
+    }
+    .cover-subtitle {
+        margin: 0.5rem auto 1rem auto;
+        font-size: 1rem;
+    }
+    .cover-img-wrapper {
+        width: 150px;
+        height: 200px;
+        margin-bottom: 1rem;
+    }
+    .seal-wrapper {
+        width: 55px;
+        height: 55px;
+        margin: 0.5rem auto;
+    }
+    .cover-descrition {
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+        max-width: 500px;
+    }
+    .btn-celestial {
+        padding: 0.75rem 2rem;
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-height: 520px) {
+    .cover-container {
+        padding: 1.25rem 1rem;
+    }
+    .cover-img-wrapper,
+    .seal-wrapper {
+        display: none;
+    }
+    .cover-title {
+        font-size: 2rem;
+    }
+    .cover-subtitle {
+        margin: 0.25rem auto 0.75rem auto;
+        font-size: 0.95rem;
+    }
+    .cover-descrition {
+        margin-bottom: 0.75rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    .btn-celestial {
+        padding: 0.65rem 1.75rem;
+        font-size: 1rem;
+    }
 }
 
 /* App Main Layout (Dashboard) */
