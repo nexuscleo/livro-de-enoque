@@ -454,10 +454,11 @@ function startAmbientDrone() {
     appState.synth.nodes = [masterGain, lpFilter, delay, delayFeedback, lfo, lfoGain, ...oscillators, ...oscGains];
     appState.synth.isPlaying = true;
 
-    // Update button text
-    const audioBtn = document.getElementById('btn-toggle-audio');
-    audioBtn.textContent = "MUTAR";
-    audioBtn.classList.add('playing');
+    // Update all audio toggle buttons (Icon-only: 🔊 vs 🔇)
+    document.querySelectorAll('.audio-toggle-btn').forEach(btn => {
+        btn.innerHTML = "🔊";
+        btn.classList.add('playing');
+    });
 }
 
 function stopAmbientDrone() {
@@ -482,10 +483,11 @@ function stopAmbientDrone() {
         appState.synth.nodes = [];
         appState.synth.isPlaying = false;
 
-        // Update button text
-        const audioBtn = document.getElementById('btn-toggle-audio');
-        audioBtn.textContent = "ATIVAR SOM";
-        audioBtn.classList.remove('playing');
+        // Update all audio toggle buttons (Icon-only: 🔊 vs 🔇)
+        document.querySelectorAll('.audio-toggle-btn').forEach(btn => {
+            btn.innerHTML = "🔇";
+            btn.classList.remove('playing');
+        });
     }, 1500);
 }
 
@@ -511,8 +513,8 @@ function navigateToChapter(targetId) {
         currentView.classList.remove('active');
     }
 
-    // Update active nav links
-    document.querySelectorAll('.nav-item').forEach(item => {
+    // Update active nav links (Desktop + Mobile)
+    document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(item => {
         if (item.dataset.target === targetId) {
             item.classList.add('active');
         } else {
@@ -528,7 +530,34 @@ function navigateToChapter(targetId) {
     }
 
     // Scroll pane back to top
-    document.getElementById('app-content-pane').scrollTop = 0;
+    const pane = document.getElementById('app-content-pane');
+    if (pane) pane.scrollTop = 0;
+
+    // Close mobile chapter selection submenu if open
+    closeMobileSubmenu();
+}
+
+function openMobileSubmenu() {
+    const overlay = document.getElementById('mobile-submenu-overlay');
+    const fab = document.getElementById('btn-mobile-fab');
+    if (overlay) overlay.classList.add('active');
+    if (fab) fab.classList.add('active');
+}
+
+function closeMobileSubmenu() {
+    const overlay = document.getElementById('mobile-submenu-overlay');
+    const fab = document.getElementById('btn-mobile-fab');
+    if (overlay) overlay.classList.remove('active');
+    if (fab) fab.classList.remove('active');
+}
+
+function toggleMobileSubmenu() {
+    const overlay = document.getElementById('mobile-submenu-overlay');
+    if (overlay && overlay.classList.contains('active')) {
+        closeMobileSubmenu();
+    } else {
+        openMobileSubmenu();
+    }
 }
 
 // --------------------------------------------------------------------------------
@@ -823,17 +852,39 @@ function setupEventListeners() {
         });
     }
 
-    // Audio Widget toggles
-    const audioToggleBtn = document.getElementById('btn-toggle-audio');
-    if (audioToggleBtn) {
-        audioToggleBtn.addEventListener('click', () => {
+    // Mobile Chapter Submenu Nav Items
+    document.querySelectorAll('.mobile-nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            navigateToChapter(item.dataset.target);
+        });
+    });
+
+    // Mobile FAB (+) Button & Close Triggers
+    const btnMobileFab = document.getElementById('btn-mobile-fab');
+    if (btnMobileFab) {
+        btnMobileFab.addEventListener('click', toggleMobileSubmenu);
+    }
+    const btnCloseMobileSubmenu = document.getElementById('btn-close-mobile-submenu');
+    if (btnCloseMobileSubmenu) {
+        btnCloseMobileSubmenu.addEventListener('click', closeMobileSubmenu);
+    }
+    const mobileSubmenuOverlay = document.getElementById('mobile-submenu-overlay');
+    if (mobileSubmenuOverlay) {
+        mobileSubmenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileSubmenuOverlay) closeMobileSubmenu();
+        });
+    }
+
+    // Audio Widget toggles (all icon-only audio buttons)
+    document.querySelectorAll('.audio-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
             if (appState.synth.isPlaying) {
                 stopAmbientDrone();
             } else {
                 startAmbientDrone();
             }
         });
-    }
+    });
 
     const volumeSlider = document.getElementById('slider-volume');
     if (volumeSlider) {

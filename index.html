@@ -75,11 +75,15 @@
         <!-- Sidebar Navigation -->
         <aside class="app-sidebar glass-panel">
             <div class="sidebar-header">
-                <svg class="sidebar-logo" viewBox="0 0 100 100">
-                    <polygon points="50,10 85,80 15,80" />
-                    <circle cx="50" cy="53" r="18" />
-                </svg>
-                <h2>Enoque</h2>
+                <div class="sidebar-brand">
+                    <svg class="sidebar-logo" viewBox="0 0 100 100">
+                        <polygon points="50,10 85,80 15,80" />
+                        <circle cx="50" cy="53" r="18" />
+                    </svg>
+                    <h2>Enoque</h2>
+                </div>
+                <!-- Icon-only audio toggle button accessible on both desktop and mobile -->
+                <button class="audio-toggle-btn icon-only-btn playing" id="btn-toggle-audio" title="Ativar/Mutar Áudio" aria-label="Ativar/Mutar Áudio">🔊</button>
             </div>
 
             <ul class="nav-menu">
@@ -118,7 +122,7 @@
                 <div class="audio-widget">
                     <div class="audio-header">
                         <span>Fundo Celestial</span>
-                        <button class="audio-toggle-btn" id="btn-toggle-audio">MUTAR</button>
+                        <button class="audio-toggle-btn icon-only-btn playing" id="btn-toggle-audio-sidebar" title="Ativar/Mutar Áudio" aria-label="Ativar/Mutar Áudio">🔊</button>
                     </div>
                     <div class="volume-control">
                         <span>🔈</span>
@@ -1048,6 +1052,49 @@
             <div class="modal-heaven-body" id="modal-desc-el">
                 <!-- Detailed description populated by JS -->
             </div>
+        </div>
+    <!-- MOBILE FLOATING ACTION BUTTON (+) -->
+    <button class="mobile-fab-btn glass-panel" id="btn-mobile-fab" title="Navegação de Capítulos" aria-label="Abrir Capítulos">
+        <span class="fab-icon">+</span>
+    </button>
+
+    <!-- MOBILE CHAPTER SELECTION SUBMENU -->
+    <div class="mobile-submenu-overlay" id="mobile-submenu-overlay">
+        <div class="mobile-submenu-card glass-panel">
+            <div class="mobile-submenu-header">
+                <h3>📜 Capítulos do Códice</h3>
+                <button class="mobile-submenu-close" id="btn-close-mobile-submenu">&times;</button>
+            </div>
+            <ul class="mobile-nav-menu">
+                <li class="mobile-nav-item active" data-target="cap1">
+                    <span class="icon">📜</span>
+                    <span class="text">1. O Escriba e os Livros</span>
+                </li>
+                <li class="mobile-nav-item" data-target="cap2">
+                    <span class="icon">👁️</span>
+                    <span class="text">2. Queda dos Vigilantes</span>
+                </li>
+                <li class="mobile-nav-item" data-target="cap3">
+                    <span class="icon">🌌</span>
+                    <span class="text">3. Os Dez Céus</span>
+                </li>
+                <li class="mobile-nav-item" data-target="cap4">
+                    <span class="icon">🌊</span>
+                    <span class="text">4. A Conexão com o Dilúvio</span>
+                </li>
+                <li class="mobile-nav-item" data-target="cap5">
+                    <span class="icon">🔥</span>
+                    <span class="text">5. O Trono de Metatron</span>
+                </li>
+                <li class="mobile-nav-item" data-target="cap6">
+                    <span class="icon">📚</span>
+                    <span class="text">6. Biblioteca de Citações</span>
+                </li>
+                <li class="mobile-nav-item" data-target="cap7">
+                    <span class="icon">🔮</span>
+                    <span class="text">7. Simbologia Enoquiana</span>
+                </li>
+            </ul>
         </div>
     </div>
 
