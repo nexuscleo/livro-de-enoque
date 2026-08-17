@@ -12,11 +12,26 @@
 
 <body>
 
-    <!-- Background Elements -->
+    <!-- SVG Liquid Glass Filters -->
+    <svg width="0" height="0" style="position: absolute; pointer-events: none; opacity: 0; width: 0; height: 0;">
+        <defs>
+            <filter id="liquid-glass-refraction" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" result="displaced" />
+                <feSpecularLighting in="noise" surfaceScale="4" specularConstant="0.9" specularExponent="25" lighting-color="#ffd700" result="specular">
+                    <feDistantLight azimuth="135" elevation="55" />
+                </feSpecularLighting>
+                <feComposite in="displaced" in2="specular" operator="arithmetic" k1="0" k2="1" k3="0.35" k4="0" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Liquid Mesh Background Elements -->
     <div class="stars-bg"></div>
     <div class="stars-particles"></div>
-    <div class="nebula nebula-purple"></div>
-    <div class="nebula-blue nebula"></div>
+    <div class="liquid-orb liquid-orb-blue"></div>
+    <div class="liquid-orb liquid-orb-gold"></div>
+    <div class="liquid-orb liquid-orb-cyan"></div>
 
     <!-- COVER SCREEN -->
     <section id="screen-cover" class="active">
