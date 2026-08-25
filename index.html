@@ -19,8 +19,10 @@
         <defs>
             <filter id="liquid-glass-refraction" x="-10%" y="-10%" width="120%" height="120%">
                 <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" result="displaced" />
-                <feSpecularLighting in="noise" surfaceScale="4" specularConstant="0.9" specularExponent="25" lighting-color="#ffd700" result="specular">
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"
+                    result="displaced" />
+                <feSpecularLighting in="noise" surfaceScale="4" specularConstant="0.9" specularExponent="25"
+                    lighting-color="#ffd700" result="specular">
                     <feDistantLight azimuth="135" elevation="55" />
                 </feSpecularLighting>
                 <feComposite in="displaced" in2="specular" operator="arithmetic" k1="0" k2="1" k3="0.35" k4="0" />
@@ -82,8 +84,6 @@
                     </svg>
                     <h2>Enoque</h2>
                 </div>
-                <!-- Icon-only audio toggle button accessible on both desktop and mobile -->
-                <button class="audio-toggle-btn icon-only-btn playing" id="btn-toggle-audio" title="Ativar/Mutar Áudio" aria-label="Ativar/Mutar Áudio">🔊</button>
             </div>
 
             <ul class="nav-menu">
@@ -122,7 +122,8 @@
                 <div class="audio-widget">
                     <div class="audio-header">
                         <span>Fundo Celestial</span>
-                        <button class="audio-toggle-btn icon-only-btn playing" id="btn-toggle-audio-sidebar" title="Ativar/Mutar Áudio" aria-label="Ativar/Mutar Áudio">🔊</button>
+                        <button class="audio-toggle-btn icon-only-btn playing" id="btn-toggle-audio-sidebar"
+                            title="Ativar/Mutar Áudio" aria-label="Ativar/Mutar Áudio">🔊</button>
                     </div>
                     <div class="volume-control">
                         <span>🔈</span>
@@ -1053,52 +1054,53 @@
                 <!-- Detailed description populated by JS -->
             </div>
         </div>
-    <!-- MOBILE FLOATING ACTION BUTTON (+) -->
-    <button class="mobile-fab-btn glass-panel" id="btn-mobile-fab" title="Navegação de Capítulos" aria-label="Abrir Capítulos">
-        <span class="fab-icon">+</span>
-    </button>
+        <!-- MOBILE FLOATING ACTION BUTTON (+) -->
+        <button class="mobile-fab-btn glass-panel" id="btn-mobile-fab" title="Navegação de Capítulos"
+            aria-label="Abrir Capítulos">
+            <span class="fab-icon">+</span>
+        </button>
 
-    <!-- MOBILE CHAPTER SELECTION SUBMENU -->
-    <div class="mobile-submenu-overlay" id="mobile-submenu-overlay">
-        <div class="mobile-submenu-card glass-panel">
-            <div class="mobile-submenu-header">
-                <h3>📜 Capítulos do Códice</h3>
-                <button class="mobile-submenu-close" id="btn-close-mobile-submenu">&times;</button>
+        <!-- MOBILE CHAPTER SELECTION SUBMENU -->
+        <div class="mobile-submenu-overlay" id="mobile-submenu-overlay">
+            <div class="mobile-submenu-card glass-panel">
+                <div class="mobile-submenu-header">
+                    <h3>📜 Capítulos do Códice</h3>
+                    <button class="mobile-submenu-close" id="btn-close-mobile-submenu">&times;</button>
+                </div>
+                <ul class="mobile-nav-menu">
+                    <li class="mobile-nav-item active" data-target="cap1">
+                        <span class="icon">📜</span>
+                        <span class="text">1. O Escriba e os Livros</span>
+                    </li>
+                    <li class="mobile-nav-item" data-target="cap2">
+                        <span class="icon">👁️</span>
+                        <span class="text">2. Queda dos Vigilantes</span>
+                    </li>
+                    <li class="mobile-nav-item" data-target="cap3">
+                        <span class="icon">🌌</span>
+                        <span class="text">3. Os Dez Céus</span>
+                    </li>
+                    <li class="mobile-nav-item" data-target="cap4">
+                        <span class="icon">🌊</span>
+                        <span class="text">4. A Conexão com o Dilúvio</span>
+                    </li>
+                    <li class="mobile-nav-item" data-target="cap5">
+                        <span class="icon">🔥</span>
+                        <span class="text">5. O Trono de Metatron</span>
+                    </li>
+                    <li class="mobile-nav-item" data-target="cap6">
+                        <span class="icon">📚</span>
+                        <span class="text">6. Biblioteca de Citações</span>
+                    </li>
+                    <li class="mobile-nav-item" data-target="cap7">
+                        <span class="icon">🔮</span>
+                        <span class="text">7. Simbologia Enoquiana</span>
+                    </li>
+                </ul>
             </div>
-            <ul class="mobile-nav-menu">
-                <li class="mobile-nav-item active" data-target="cap1">
-                    <span class="icon">📜</span>
-                    <span class="text">1. O Escriba e os Livros</span>
-                </li>
-                <li class="mobile-nav-item" data-target="cap2">
-                    <span class="icon">👁️</span>
-                    <span class="text">2. Queda dos Vigilantes</span>
-                </li>
-                <li class="mobile-nav-item" data-target="cap3">
-                    <span class="icon">🌌</span>
-                    <span class="text">3. Os Dez Céus</span>
-                </li>
-                <li class="mobile-nav-item" data-target="cap4">
-                    <span class="icon">🌊</span>
-                    <span class="text">4. A Conexão com o Dilúvio</span>
-                </li>
-                <li class="mobile-nav-item" data-target="cap5">
-                    <span class="icon">🔥</span>
-                    <span class="text">5. O Trono de Metatron</span>
-                </li>
-                <li class="mobile-nav-item" data-target="cap6">
-                    <span class="icon">📚</span>
-                    <span class="text">6. Biblioteca de Citações</span>
-                </li>
-                <li class="mobile-nav-item" data-target="cap7">
-                    <span class="icon">🔮</span>
-                    <span class="text">7. Simbologia Enoquiana</span>
-                </li>
-            </ul>
         </div>
-    </div>
 
-    <script src="app.js"></script>
+        <script src="app.js"></script>
 </body>
 
 </html>
