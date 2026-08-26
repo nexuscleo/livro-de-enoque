@@ -4,38 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Livro de Enoque</title>
+    <title>O Livro de Enoque - Códice Celestial</title>
     <meta name="description"
         content="Um livro digital interativo sobre o Livro de Enoque: a queda dos Vigilantes, a ascensão aos 10 céus e a transformação no arcanjo Metatron.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- SVG Liquid Glass Filters -->
-    <svg width="0" height="0" style="position: absolute; pointer-events: none; opacity: 0; width: 0; height: 0;">
-        <defs>
-            <filter id="liquid-glass-refraction" x="-10%" y="-10%" width="120%" height="120%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"
-                    result="displaced" />
-                <feSpecularLighting in="noise" surfaceScale="4" specularConstant="0.9" specularExponent="25"
-                    lighting-color="#ffd700" result="specular">
-                    <feDistantLight azimuth="135" elevation="55" />
-                </feSpecularLighting>
-                <feComposite in="displaced" in2="specular" operator="arithmetic" k1="0" k2="1" k3="0.35" k4="0" />
-            </filter>
-        </defs>
-    </svg>
-
-    <!-- Liquid Mesh Background Elements -->
+    <!-- Celestial Static Ambient Background -->
     <div class="stars-bg"></div>
     <div class="stars-particles"></div>
-    <div class="liquid-orb liquid-orb-blue"></div>
-    <div class="liquid-orb liquid-orb-gold"></div>
-    <div class="liquid-orb liquid-orb-cyan"></div>
 
     <!-- COVER SCREEN -->
     <section id="screen-cover" class="active">
@@ -44,7 +29,11 @@
             <div class="cover-subtitle">O CÓDICE CELESTIAL</div>
 
             <div class="cover-img-wrapper">
-                <img src="assets/enoque_capa_mystic.png" alt="Capa do Livro de Enoque" class="cover-img">
+                <picture>
+                    <source srcset="assets/enoque_capa_mystic.webp" type="image/webp">
+                    <img src="assets/enoque_capa_mystic.png" alt="Capa do Livro de Enoque" class="cover-img" width="250"
+                        height="340" loading="eager" decoding="async">
+                </picture>
             </div>
 
             <div class="seal-wrapper">
@@ -78,7 +67,8 @@
         <aside class="app-sidebar glass-panel">
             <div class="sidebar-header">
                 <div class="sidebar-brand">
-                    <img src="./assets/favicon.svg"></img>
+                    <img src="assets/favicon.webp" alt="Símbolo Enoque" class="sidebar-brand-icon" width="32"
+                        height="32">
                     <h2>Enoque</h2>
                 </div>
             </div>
@@ -274,7 +264,11 @@
 
                     <div class="illustration-container">
                         <div class="chapter-illustration">
-                            <img src="assets/enoque_capa_mystic.png" alt="Grimório Místico de Enoque">
+                            <picture>
+                                <source srcset="assets/enoque_capa_mystic.webp" type="image/webp">
+                                <img src="assets/enoque_capa_mystic.png" alt="Grimório Místico de Enoque" width="800"
+                                    height="420" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="illustration-caption">
                             Representação simbólica do Códice de Enoque, contendo os cálculos das estrelas e os decretos
@@ -369,7 +363,11 @@
 
                     <div class="illustration-container">
                         <div class="chapter-illustration">
-                            <img src="assets/anjos_caidos_hermon.png" alt="A Queda dos Vigilantes no Monte Hermon">
+                            <picture>
+                                <source srcset="assets/anjos_caidos_hermon.webp" type="image/webp">
+                                <img src="assets/anjos_caidos_hermon.png" alt="A Queda dos Vigilantes no Monte Hermon"
+                                    width="800" height="420" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="illustration-caption">
                             A descida dos 200 anjos rebeldes sobre o Monte Hermon, alterando para sempre a história
@@ -534,7 +532,11 @@
 
                     <div class="illustration-container">
                         <div class="chapter-illustration">
-                            <img src="assets/dez_ceus_esferas.png" alt="A Jornada pelos Dez Céus">
+                            <picture>
+                                <source srcset="assets/dez_ceus_esferas.webp" type="image/webp">
+                                <img src="assets/dez_ceus_esferas.png" alt="A Jornada pelos Dez Céus" width="800"
+                                    height="420" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="illustration-caption">
                             Representação cósmica das dez esferas e planos de ascensão até a morada divina do Trono.
@@ -616,7 +618,11 @@
 
                     <div class="illustration-container">
                         <div class="chapter-illustration">
-                            <img src="assets/diluvio_enoquiano.png" alt="O Dilúvio Enoquiano">
+                            <picture>
+                                <source srcset="assets/diluvio_enoquiano.webp" type="image/webp">
+                                <img src="assets/diluvio_enoquiano.png" alt="O Dilúvio Enoquiano" width="800"
+                                    height="420" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="illustration-caption">
                             A catástrofe purificadora do dilúvio global e a Arca de Noé, limpando a contaminação da
@@ -741,7 +747,11 @@
 
                     <div class="illustration-container">
                         <div class="chapter-illustration">
-                            <img src="assets/metatron_trono_fogo.png" alt="A Transformação em Metatron">
+                            <picture>
+                                <source srcset="assets/metatron_trono_fogo.webp" type="image/webp">
+                                <img src="assets/metatron_trono_fogo.png" alt="A Transformação em Metatron" width="800"
+                                    height="420" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="illustration-caption">
                             Metatron, o anjo de fogo supremo e Escriba da Presença Celestial.
@@ -862,7 +872,11 @@
 
                     <div class="illustration-container">
                         <div class="chapter-illustration">
-                            <img src="assets/biblioteca_sabedoria.png" alt="Biblioteca de Citações e Sabedoria">
+                            <picture>
+                                <source srcset="assets/biblioteca_sabedoria.webp" type="image/webp">
+                                <img src="assets/biblioteca_sabedoria.png" alt="Biblioteca de Citações e Sabedoria"
+                                    width="800" height="420" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="illustration-caption">
                             A biblioteca de revelações celestes e pergaminhos sagrados contendo os decretos eternos do
@@ -1023,7 +1037,11 @@
 
                     <div class="illustration-container">
                         <div class="chapter-illustration">
-                            <img src="assets/simbologia_enoquiana.png" alt="Simbologia Enoquiana">
+                            <picture>
+                                <source srcset="assets/simbologia_enoquiana.webp" type="image/webp">
+                                <img src="assets/simbologia_enoquiana.png" alt="Simbologia Enoquiana" width="800"
+                                    height="420" loading="lazy" decoding="async">
+                            </picture>
                         </div>
                         <div class="illustration-caption">
                             O Trono Móvel da Merkabah e as chaves geométricas da criação cosmológica.
