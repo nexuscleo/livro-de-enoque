@@ -1131,6 +1131,39 @@ h1, h2, h3, h4, h5 {
     color: #ffffff;
 }
 
+/* Mobile Floating Audio Mute/Unmute Button */
+.mobile-audio-fab-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 84px;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: rgba(15, 23, 42, 0.85);
+    color: var(--color-gold-bright);
+    border: 1px solid var(--color-gold-muted);
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 12px rgba(250, 204, 21, 0.2);
+    cursor: pointer;
+    z-index: 90;
+    transition: var(--transition-fast);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.mobile-audio-fab-btn:active {
+    transform: scale(0.92);
+}
+
+.mobile-audio-fab-btn.playing {
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.25), rgba(217, 119, 6, 0.2));
+    border-color: var(--color-gold-bright);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(250, 204, 21, 0.4);
+}
+
 .mobile-submenu-overlay {
     position: fixed;
     inset: 0;
@@ -1270,6 +1303,7 @@ h1, h2, h3, h4, h5 {
 
     /* Ocultar elementos mobile FAB no desktop */
     .mobile-fab-btn,
+    .mobile-audio-fab-btn,
     .mobile-submenu-overlay {
         display: none !important;
     }
