@@ -517,6 +517,9 @@ function navigateToChapter(targetId) {
     document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(item => {
         if (item.dataset.target === targetId) {
             item.classList.add('active');
+            if (item.classList.contains('nav-item')) {
+                item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
         } else {
             item.classList.remove('active');
         }
@@ -535,6 +538,42 @@ function navigateToChapter(targetId) {
 
     // Close mobile chapter selection submenu if open
     closeMobileSubmenu();
+}
+
+function initMobileScrollBehavior() {
+    const pane = document.getElementById('app-content-pane');
+    const sidebar = document.querySelector('.app-sidebar');
+    if (!pane || !sidebar) return;
+
+    let isScrolled = false;
+
+    pane.addEventListener('scroll', () => {
+        if (window.innerWidth < 960) {
+            if (pane.scrollTop > 20) {
+                if (!isScrolled) {
+                    sidebar.classList.add('scrolled');
+                    isScrolled = true;
+                }
+            } else {
+                if (isScrolled) {
+                    sidebar.classList.remove('scrolled');
+                    isScrolled = false;
+                }
+            }
+        } else {
+            if (isScrolled) {
+                sidebar.classList.remove('scrolled');
+                isScrolled = false;
+            }
+        }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 960) {
+            sidebar.classList.remove('scrolled');
+            isScrolled = false;
+        }
+    });
 }
 
 function openMobileSubmenu() {
@@ -947,6 +986,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Bind Interface Controls
     setupEventListeners();
+    initMobileScrollBehavior();
 
     // Pre-select first items in list boxes
     selectWatcher("samyaza");

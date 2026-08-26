@@ -399,14 +399,84 @@ h1, h2, h3, h4, h5 {
 }
 
 .nav-item.active {
-    background-color: rgba(250, 204, 21, 0.15);
-    border: 1px solid var(--color-gold-muted);
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.22), rgba(217, 119, 6, 0.15));
+    border: 1px solid var(--color-gold-bright);
     color: var(--color-gold-bright);
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: 0 0 14px rgba(250, 204, 21, 0.3), inset 0 0 8px rgba(250, 204, 21, 0.15);
+    transform: translateY(-1px);
+}
+
+.nav-item.active .icon {
+    filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.8));
+    transform: scale(1.1);
 }
 
 .sidebar-controls {
     display: none; /* Oculto no layout mobile padrão, visível no desktop */
+}
+
+/* Mobile-only Header Scroll Collapse & Sticky Rules */
+@media (max-width: 959px) {
+    .app-sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        transition: padding 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .sidebar-brand {
+        transition: gap 0.35s ease;
+    }
+
+    .sidebar-brand-icon {
+        max-height: 140px;
+        opacity: 1;
+        transform: scale(1);
+        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                    opacity 0.25s ease, 
+                    margin 0.35s ease, 
+                    transform 0.35s ease;
+    }
+
+    .sidebar-header h2 {
+        font-size: 1.4rem;
+        transition: font-size 0.35s ease, margin 0.35s ease, letter-spacing 0.35s ease;
+    }
+
+    /* Scrolled state on mobile: collapse image, keep smaller ENOQUE above chapters */
+    .app-sidebar.scrolled {
+        padding: 0.4rem 0.8rem;
+        background-color: rgba(10, 15, 29, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--color-gold-muted);
+        box-shadow: var(--shadow-md);
+    }
+
+    .app-sidebar.scrolled .sidebar-brand-icon {
+        max-height: 0;
+        opacity: 0;
+        margin: 0;
+        pointer-events: none;
+        transform: scale(0.6);
+        overflow: hidden;
+    }
+
+    .app-sidebar.scrolled .sidebar-brand {
+        gap: 2px;
+    }
+
+    .app-sidebar.scrolled .sidebar-header h2 {
+        font-size: 1.05rem;
+        letter-spacing: 2.5px;
+        margin-bottom: 2px;
+    }
+
+    .app-sidebar.scrolled .nav-menu {
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
 }
 
 /* Painel de Conteúdo de Leitura */
@@ -1175,6 +1245,15 @@ h1, h2, h3, h4, h5 {
         margin-bottom: 1.8rem;
         padding-bottom: 1rem;
         border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+    }
+
+    .sidebar-brand-icon {
+        max-height: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        margin: 0 !important;
+        pointer-events: auto !important;
+        visibility: visible !important;
     }
 
     .nav-menu {
