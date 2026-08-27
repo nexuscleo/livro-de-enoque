@@ -9,7 +9,7 @@
     /* Superfícies Sólidas Sóbrias (Sem Blur/Backdrop-filter) */
     --bg-dark: #070a12;
     --bg-dark-radial: radial-gradient(circle at 50% 20%, #0d1527 0%, #060a14 70%, #03050a 100%);
-    
+
     --surface-card: #0f172a;
     --surface-card-hover: #1e293b;
     --surface-elevated: #162036;
@@ -68,7 +68,8 @@
     padding: 0;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     background-color: var(--bg-dark);
@@ -143,7 +144,11 @@ html, body {
    TIPOGRAFIA & TÍTULOS
    ========================================================================== */
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
     font-family: var(--font-header);
     color: var(--color-gold);
     letter-spacing: 0.8px;
@@ -178,6 +183,7 @@ h1, h2, h3, h4, h5 {
 .cover-container {
     width: 100%;
     max-width: 760px;
+    max-height: 600px;
     text-align: center;
     padding: 2.2rem 1.5rem;
     position: relative;
@@ -413,7 +419,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .sidebar-controls {
-    display: none; /* Oculto no layout mobile padrão, visível no desktop */
+    display: none;
+    /* Oculto no layout mobile padrão, visível no desktop */
 }
 
 /* Mobile-only Header Scroll Collapse & Sticky Rules */
@@ -433,10 +440,10 @@ h1, h2, h3, h4, h5 {
         max-height: 140px;
         opacity: 1;
         transform: scale(1);
-        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
-                    opacity 0.25s ease, 
-                    margin 0.35s ease, 
-                    transform 0.35s ease;
+        transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.25s ease,
+            margin 0.35s ease,
+            transform 0.35s ease;
     }
 
     .sidebar-header h2 {
@@ -505,6 +512,7 @@ h1, h2, h3, h4, h5 {
         opacity: 0;
         transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1421,7 +1429,10 @@ h1, h2, h3, h4, h5 {
 
 /* Accesibilidade — Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-    *, ::before, ::after {
+
+    *,
+    ::before,
+    ::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
