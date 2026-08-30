@@ -4,6 +4,7 @@ import { useNavigation } from '../../context/NavigationContext';
 import { useReader } from '../../context/ReaderContext';
 import { useAudio } from '../../context/AudioContext';
 import { X, Bookmark, Home, Search, Sliders, Volume2, VolumeX, ChevronRight } from 'lucide-react';
+import { Footer } from './Footer';
 
 export const MobileNavigation: React.FC = () => {
   const { 
@@ -139,7 +140,7 @@ export const MobileNavigation: React.FC = () => {
         </div>
 
         {/* Drawer Footer */}
-        <div className="pt-3 mt-2 border-t border-gold/20">
+        <div className="pt-3 mt-2 border-t border-gold/20 space-y-2">
           <button
             onClick={() => {
               setIsMobileMenuOpen(false);
@@ -150,6 +151,8 @@ export const MobileNavigation: React.FC = () => {
             <Home className="w-4 h-4 text-amber-400" />
             <span>Voltar para a Capa</span>
           </button>
+
+          <Footer />
         </div>
 
       </div>

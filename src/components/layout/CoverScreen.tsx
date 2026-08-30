@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigation } from '../../context/NavigationContext';
 import { useAudio } from '../../context/AudioContext';
 import { BookOpen, Sparkles } from 'lucide-react';
+import { Footer } from './Footer';
 
 export const CoverScreen: React.FC = () => {
   const { openBook } = useNavigation();
@@ -13,7 +14,12 @@ export const CoverScreen: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6 py-8 sm:py-12 relative z-10 animate-fade-in overflow-y-auto">
+    <section className="min-h-screen w-full flex flex-col items-center justify-between p-4 sm:p-6 py-8 sm:py-12 relative z-10 animate-fade-in overflow-y-auto">
+      
+      {/* Spacer for vertical balance */}
+      <div className="hidden sm:block" />
+
+      {/* Main Cover Card */}
       <div className="w-full max-w-4xl bg-celestial-surface/95 border border-gold/40 shadow-2xl rounded-2xl p-6 sm:p-8 md:p-10 backdrop-blur-md relative my-auto">
         
         {/* Decorative background ambient glow */}
@@ -87,6 +93,10 @@ export const CoverScreen: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Subtle Footer on Cover */}
+      <Footer className="mt-6 sm:mt-8" />
+
     </section>
   );
 };

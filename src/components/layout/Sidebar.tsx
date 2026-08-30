@@ -4,6 +4,7 @@ import { useNavigation } from '../../context/NavigationContext';
 import { useAudio } from '../../context/AudioContext';
 import { useReader } from '../../context/ReaderContext';
 import { Volume2, VolumeX, Search, Bookmark, Sliders, Home } from 'lucide-react';
+import { Footer } from './Footer';
 
 export const Sidebar: React.FC = () => {
   const { activeChapter, setActiveChapter, goToCover } = useNavigation();
@@ -103,7 +104,7 @@ export const Sidebar: React.FC = () => {
       </div>
 
       {/* Sidebar Controls Footer */}
-      <div className="pt-4 border-t border-gold/20 space-y-4 text-xs">
+      <div className="pt-4 border-t border-gold/20 space-y-3.5 text-xs">
         
         {/* Ambient Audio Synth Widget */}
         <div className="bg-celestial-surface p-3 rounded-xl border border-gold/20">
@@ -173,8 +174,10 @@ export const Sidebar: React.FC = () => {
           <span>Voltar para a Capa</span>
         </button>
 
+        {/* Subtle Author Signature */}
+        <Footer className="pt-2" />
+
       </div>
     </aside>
   );
 };
-
