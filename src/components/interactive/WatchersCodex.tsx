@@ -105,8 +105,7 @@ export const WatchersCodex: React.FC = () => {
           </div>
 
           <div className="mt-3 pt-2.5 border-t border-slate-800 flex justify-between items-center text-[10px] sm:text-[11px] text-slate-400">
-            <span>Fonte: 1 Enoque 6-8 (Versão Etíope)</span>
-            <span className="text-amber-400 font-mono">ID: {currentWatcher.id}</span>
+            <span>Literatura Enoquiana • 1 Enoque 6-8 (Versão Etíope)</span>
           </div>
 
         </div>

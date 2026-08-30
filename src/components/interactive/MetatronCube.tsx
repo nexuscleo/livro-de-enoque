@@ -18,31 +18,31 @@ export const MetatronCube: React.FC = () => {
   const rInner = 60;
   const rOuter = 120;
 
-  // Build the 13 points
+  // Build the 13 unique points (1 Center + 6 Inner + 6 Outer = 13 unique gates)
   const points: Point[] = useMemo(() => {
     const pts: Point[] = [
-      { id: 0, x: center.x, y: center.y, gate: METATRON_GATES[10] } // Center: O Escriba Divino (Metatron)
+      { id: 0, x: center.x, y: center.y, gate: METATRON_GATES[0] } // Center: Portão 1 (Sabedoria)
     ];
 
-    // Inner 6 points
+    // Inner 6 points (id: 1..6 -> Gates index 1..6)
     for (let i = 0; i < 6; i++) {
       const angle = (i * 60 * Math.PI) / 180;
       pts.push({
         id: i + 1,
         x: center.x + rInner * Math.cos(angle),
         y: center.y + rInner * Math.sin(angle),
-        gate: METATRON_GATES[i]
+        gate: METATRON_GATES[i + 1]
       });
     }
 
-    // Outer 6 points
+    // Outer 6 points (id: 7..12 -> Gates index 7..12)
     for (let i = 0; i < 6; i++) {
       const angle = (i * 60 * Math.PI) / 180;
       pts.push({
         id: i + 7,
         x: center.x + rOuter * Math.cos(angle),
         y: center.y + rOuter * Math.sin(angle),
-        gate: METATRON_GATES[i + 6]
+        gate: METATRON_GATES[i + 7]
       });
     }
 
@@ -67,7 +67,7 @@ export const MetatronCube: React.FC = () => {
     return linesList;
   }, [points]);
 
-  const activeGate = points.find(p => p.id === activeNodeId)?.gate || METATRON_GATES[10];
+  const activeGate = points.find(p => p.id === activeNodeId)?.gate || METATRON_GATES[0];
 
   return (
     <div className="my-6 sm:my-8 p-3.5 sm:p-6 bg-celestial-surface/90 border border-gold/40 rounded-2xl shadow-xl backdrop-blur-sm">

@@ -73,27 +73,27 @@
     --color-text-gold: #fef08a;
   }
 
-  /* Theme: Solar Light */
+  /* Theme: Solar Light (Editorial Paper & Dark Gold) */
   .theme-solar {
     --bg-primary: #f8fafc;
-    --bg-radial: radial-gradient(circle at 50% 20%, #f1f5f9 0%, #e2e8f0 100%);
+    --bg-radial: radial-gradient(circle at 50% 20%, #ffffff 0%, #f1f5f9 60%, #e2e8f0 100%);
     --surface-card: #ffffff;
-    --surface-card-hover: #f1f5f9;
-    --surface-elevated: #e2e8f0;
-    --surface-sidebar: #f8fafc;
-    --surface-input: #f1f5f9;
+    --surface-card-hover: #f8fafc;
+    --surface-elevated: #f1f5f9;
+    --surface-sidebar: #ffffff;
+    --surface-input: #ffffff;
     
-    --color-gold: #b45309;
-    --color-gold-bright: #92400e;
-    --color-gold-muted: #78350f;
+    --color-gold: #92400e;
+    --color-gold-bright: #78350f;
+    --color-gold-muted: #b45309;
     --color-gold-dark: #451a03;
     
-    --border-gold: rgba(180, 83, 9, 0.3);
-    --border-gold-hover: rgba(180, 83, 9, 0.6);
+    --border-gold: rgba(146, 64, 14, 0.25);
+    --border-gold-hover: rgba(146, 64, 14, 0.5);
     
     --color-text-main: #0f172a;
-    --color-text-muted: #475569;
-    --color-text-gold: #b45309;
+    --color-text-muted: #334155;
+    --color-text-gold: #78350f;
   }
 
   html, body {
@@ -125,7 +125,7 @@
     height: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.1);
   }
   ::-webkit-scrollbar-thumb {
     background: var(--color-gold-dark);
@@ -248,4 +248,169 @@
 
 .animate-celestial-pulse {
   animation: celestialPulse 4s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   SOLAR THEME (TEMA SOLAR CLARO — CONTRASTE PROFISSIONAL & LEGIBILIDADE MÁXIMA)
+   ========================================================================== */
+
+.theme-solar {
+  color: #0f172a !important;
+}
+
+/* Textos e Parágrafos */
+.theme-solar article,
+.theme-solar p,
+.theme-solar li,
+.theme-solar span,
+.theme-solar .text-slate-200,
+.theme-solar .text-slate-300,
+.theme-solar .text-slate-400 {
+  color: #1e293b !important;
+}
+
+/* Destaques em Negrito e Amarelo */
+.theme-solar strong,
+.theme-solar .text-yellow-200,
+.theme-solar .text-yellow-300,
+.theme-solar .text-yellow-400,
+.theme-solar .text-amber-400 {
+  color: #92400e !important;
+  font-weight: 700 !important;
+}
+
+/* Títulos e Cabeçalhos */
+.theme-solar h1,
+.theme-solar h2,
+.theme-solar h3,
+.theme-solar h4,
+.theme-solar h5,
+.theme-solar .font-header,
+.theme-solar .text-gold,
+.theme-solar .text-gold-light {
+  color: #78350f !important;
+}
+
+/* Subtítulos em azul místico */
+.theme-solar .text-mystic-blue {
+  color: #0369a1 !important;
+  font-weight: 600 !important;
+}
+
+/* Caixas de Citação */
+.theme-solar .quote-box {
+  background: #fef3c7 !important;
+  border-left-color: #b45309 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+.theme-solar .quote-box p {
+  color: #451a03 !important;
+  font-weight: 500 !important;
+}
+
+.theme-solar .quote-box .quote-author {
+  color: #92400e !important;
+}
+
+/* Superfícies, Cartões e Sidebars */
+.theme-solar .bg-celestial-surface,
+.theme-solar .bg-celestial-sidebar {
+  background-color: #ffffff !important;
+  border-color: rgba(180, 83, 9, 0.22) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+.theme-solar .bg-celestial-elevated,
+.theme-solar .bg-celestial-elevated\/40,
+.theme-solar .bg-celestial-elevated\/60,
+.theme-solar .bg-celestial-elevated\/70,
+.theme-solar .bg-celestial-elevated\/90 {
+  background-color: #f8fafc !important;
+  border-color: rgba(180, 83, 9, 0.2) !important;
+}
+
+.theme-solar .bg-slate-800,
+.theme-solar .bg-slate-800\/40,
+.theme-solar .bg-slate-800\/50,
+.theme-solar .bg-slate-800\/60,
+.theme-solar .bg-slate-800\/70,
+.theme-solar .bg-slate-800\/80,
+.theme-solar .bg-slate-800\/90,
+.theme-solar .bg-slate-900\/60 {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.theme-solar .bg-amber-950\/20,
+.theme-solar .bg-amber-500\/10,
+.theme-solar .bg-amber-500\/15,
+.theme-solar .bg-amber-500\/20,
+.theme-solar .bg-amber-500\/25 {
+  background-color: #fef3c7 !important;
+  border-color: #fcd34d !important;
+  color: #78350f !important;
+}
+
+.theme-solar .bg-rose-950\/20 {
+  background-color: #ffe4e6 !important;
+  border-color: #fda4af !important;
+}
+
+.theme-solar .text-rose-400 {
+  color: #be123c !important;
+}
+
+.theme-solar .text-sky-400,
+.theme-solar .text-sky-300 {
+  color: #0284c7 !important;
+}
+
+.theme-solar .text-emerald-400,
+.theme-solar .text-emerald-300 {
+  color: #047857 !important;
+}
+
+/* SVG Cubo de Metatron no tema Solar */
+.theme-solar .cube-node-circle {
+  fill: #ffffff !important;
+  stroke: #b45309 !important;
+}
+
+.theme-solar .cube-node-circle:hover,
+.theme-solar .cube-node-circle:active {
+  fill: #fef3c7 !important;
+  stroke: #92400e !important;
+}
+
+.theme-solar .cube-node-circle.active {
+  fill: #fde68a !important;
+  stroke: #78350f !important;
+}
+
+.theme-solar .cube-connector-line {
+  stroke: rgba(180, 83, 9, 0.25) !important;
+}
+
+.theme-solar .cube-connector-line.active {
+  stroke: #b45309 !important;
+}
+
+/* Campos de entrada / Inputs */
+.theme-solar input,
+.theme-solar .bg-celestial-input {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-solar input::placeholder {
+  color: #64748b !important;
+}
+
+/* Fundo estelar no tema claro */
+.theme-solar .stars-particles {
+  opacity: 0.12 !important;
+  filter: invert(1);
 }

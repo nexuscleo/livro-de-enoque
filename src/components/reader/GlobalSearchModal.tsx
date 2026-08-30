@@ -82,23 +82,20 @@ export const GlobalSearchModal: React.FC = () => {
             <button
               onClick={() => setQuery('')}
               className="p-1 rounded text-slate-400 hover:text-white active:scale-95"
+              title="Limpar texto"
             >
               <X className="w-4 h-4" />
             </button>
           )}
+          {/* Close X Button */}
           <button
             onClick={() => setIsSearchOpen(false)}
-            className="p-1 rounded text-slate-400 hover:text-white sm:hidden active:scale-95"
+            className="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all active:scale-95 border border-slate-700"
+            title="Fechar busca (X ou ESC)"
+            aria-label="Fechar busca"
           >
             <X className="w-5 h-5" />
           </button>
-          <kbd 
-            onClick={() => setIsSearchOpen(false)}
-            className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono bg-slate-800 border border-slate-700 text-slate-400 hover:text-white rounded cursor-pointer transition-colors"
-            title="Pressione ESC para fechar"
-          >
-            ESC
-          </kbd>
         </div>
 
         {/* Results List */}
@@ -158,9 +155,13 @@ export const GlobalSearchModal: React.FC = () => {
 
         {/* Footer info */}
         <div className="px-3.5 sm:px-4 py-2 bg-celestial-sidebar border-t border-gold/10 text-[10px] sm:text-[11px] text-slate-400 flex items-center justify-between">
-          <span>{results.length} resultado(s)</span>
-          <span className="hidden sm:inline">Pressione ESC para fechar</span>
-          <button onClick={() => setIsSearchOpen(false)} className="sm:hidden text-amber-400">Fechar</button>
+          <span>{results.length} resultado(s) encontrado(s)</span>
+          <button 
+            onClick={() => setIsSearchOpen(false)} 
+            className="text-amber-400 hover:text-yellow-300 font-semibold transition-colors"
+          >
+            Fechar (X)
+          </button>
         </div>
 
       </div>
