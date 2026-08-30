@@ -35,7 +35,7 @@ export const MobileNavigation: React.FC = () => {
         {/* Drawer Header */}
         <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-gold/20">
           <div className="flex items-center gap-2.5">
-            <img src="/assets/favicon.webp" alt="Enoque" className="w-8 h-8 object-contain" />
+            <img src="./assets/favicon.webp" alt="Enoque" className="w-8 h-8 object-contain" />
             <div>
               <span className="font-header font-bold text-base text-gold block leading-none">ENOQUE</span>
               <span className="text-[10px] font-sans text-slate-400 uppercase tracking-widest">Códice Celestial</span>

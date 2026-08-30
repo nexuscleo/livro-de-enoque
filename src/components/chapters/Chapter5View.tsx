@@ -83,7 +83,7 @@ export const Chapter5View: React.FC = () => {
         {/* Chapter Illustration */}
         <div className="my-6 sm:my-8 rounded-2xl overflow-hidden border border-gold/40 shadow-xl bg-celestial-surface">
           <img 
-            src="/assets/metatron_trono_fogo.webp" 
+            src="./assets/metatron_trono_fogo.webp" 
             alt="A Transformação em Metatron"
             className="w-full max-h-80 sm:max-h-96 object-cover"
             loading="lazy"

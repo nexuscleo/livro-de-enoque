@@ -42,8 +42,8 @@ export const Chapter6View: React.FC = () => {
         {/* Chapter Illustration */}
         <div className="my-8 rounded-2xl overflow-hidden border border-gold/40 shadow-xl bg-celestial-surface">
           <img 
-            src="/assets/biblioteca_sabedoria.webp" 
-            alt="Biblioteca de Citações e Sabedoria"
+            src="./assets/biblioteca_sabedoria.webp" 
+            alt="Biblioteca da Sabedoria Enoquiana"
             className="w-full max-h-96 object-cover"
             loading="lazy"
           />

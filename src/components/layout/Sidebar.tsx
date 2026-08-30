@@ -29,7 +29,7 @@ export const Sidebar: React.FC = () => {
         className="flex items-center gap-3 pb-5 mb-4 border-b border-gold/20 cursor-pointer group"
       >
         <img 
-          src="/assets/favicon.webp" 
+          src="./assets/favicon.webp" 
           alt="Selo Enoque" 
           className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
         />

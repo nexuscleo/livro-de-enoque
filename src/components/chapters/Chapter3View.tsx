@@ -90,7 +90,7 @@ export const Chapter3View: React.FC = () => {
         {/* Chapter Illustration */}
         <div className="my-6 sm:my-8 rounded-2xl overflow-hidden border border-gold/40 shadow-xl bg-celestial-surface">
           <img 
-            src="/assets/dez_ceus_esferas.webp" 
+            src="./assets/dez_ceus_esferas.webp" 
             alt="A Jornada pelos Dez Céus"
             className="w-full max-h-80 sm:max-h-96 object-cover"
             loading="lazy"

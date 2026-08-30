@@ -70,7 +70,7 @@ export const Chapter4View: React.FC = () => {
         {/* Chapter Illustration */}
         <div className="my-6 sm:my-8 rounded-2xl overflow-hidden border border-gold/40 shadow-xl bg-celestial-surface">
           <img 
-            src="/assets/diluvio_enoquiano.webp" 
+            src="./assets/diluvio_enoquiano.webp" 
             alt="O Dilúvio Enoquiano"
             className="w-full max-h-80 sm:max-h-96 object-cover"
             loading="lazy"

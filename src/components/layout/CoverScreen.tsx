@@ -32,7 +32,7 @@ export const CoverScreen: React.FC = () => {
           <div className="md:col-span-5 flex flex-col items-center justify-center">
             <div className="w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-76 rounded-2xl overflow-hidden border-2 border-gold/50 shadow-gold relative group">
               <img 
-                src="/assets/enoque_capa_mystic.webp" 
+                src="./assets/enoque_capa_mystic.webp" 
                 alt="Capa do Livro de Enoque"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="eager"

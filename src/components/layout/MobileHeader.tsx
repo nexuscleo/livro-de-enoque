@@ -16,7 +16,7 @@ export const MobileHeader: React.FC = () => {
         className="flex items-center gap-2 cursor-pointer active:scale-95 transition-transform"
       >
         <img 
-          src="/assets/favicon.webp" 
+          src="./assets/favicon.webp" 
           alt="Enoque" 
           className="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(234,179,8,0.4)]"
         />
