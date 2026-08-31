@@ -32,22 +32,38 @@ export const MobileNavigation: React.FC = () => {
       {/* Drawer content */}
       <div className="relative w-[85%] max-w-sm h-full bg-celestial-sidebar border-r border-gold/40 shadow-2xl flex flex-col p-4 sm:p-5 z-10 animate-slide-in safe-top safe-bottom">
         
-        {/* Drawer Header */}
-        <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-gold/20">
-          <div className="flex items-center gap-2.5">
-            <img src="./assets/favicon.webp" alt="Enoque" className="w-8 h-8 object-contain" />
-            <div>
-              <span className="font-header font-bold text-base text-gold block leading-none">ENOQUE</span>
-              <span className="text-[10px] font-sans text-slate-400 uppercase tracking-widest">Códice Celestial</span>
-            </div>
+        {/* Close Button Top-Right */}
+        <button
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute top-3.5 right-3.5 p-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 active:scale-95 z-20"
+          aria-label="Fechar menu"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        {/* Grand Mobile Brand Header with Enlarged Seal & Centered Title */}
+        <div 
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            goToCover();
+          }}
+          className="flex flex-col items-center justify-center text-center pb-3.5 mb-3.5 border-b border-gold/20 cursor-pointer pt-1"
+          title="Voltar para a Capa"
+        >
+          <div className="w-16 h-16 p-1 rounded-2xl bg-celestial-surface/70 border border-gold/40 shadow-[0_0_12px_rgba(234,179,8,0.2)]">
+            <img 
+              src="./assets/favicon.webp" 
+              alt="Selo Sagrado de Enoque" 
+              className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]" 
+            />
           </div>
-          <button
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="p-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 active:scale-95"
-            aria-label="Fechar menu"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          
+          <h2 className="font-header text-lg font-bold tracking-[0.2em] text-gold mt-2 leading-none">
+            ENOQUE
+          </h2>
+          <span className="text-[9px] font-sans text-mystic-blue tracking-[0.25em] uppercase font-semibold mt-1">
+            Códice Celestial
+          </span>
         </div>
 
         {/* Quick Tools Grid in Drawer */}
