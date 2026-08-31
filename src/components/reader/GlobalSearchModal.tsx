@@ -87,11 +87,11 @@ export const GlobalSearchModal: React.FC = () => {
               <X className="w-4 h-4" />
             </button>
           )}
-          {/* Close X Button */}
+          {/* Top Close X Button */}
           <button
             onClick={() => setIsSearchOpen(false)}
             className="p-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-all active:scale-95 border border-slate-700"
-            title="Fechar busca (X ou ESC)"
+            title="Fechar busca"
             aria-label="Fechar busca"
           >
             <X className="w-5 h-5" />
@@ -156,12 +156,7 @@ export const GlobalSearchModal: React.FC = () => {
         {/* Footer info */}
         <div className="px-3.5 sm:px-4 py-2 bg-celestial-sidebar border-t border-gold/10 text-[10px] sm:text-[11px] text-slate-400 flex items-center justify-between">
           <span>{results.length} resultado(s) encontrado(s)</span>
-          <button 
-            onClick={() => setIsSearchOpen(false)} 
-            className="text-amber-400 hover:text-yellow-300 font-semibold transition-colors"
-          >
-            Fechar (X)
-          </button>
+          <span className="text-slate-500 text-[10px] font-sans">Códice Celestial</span>
         </div>
 
       </div>
