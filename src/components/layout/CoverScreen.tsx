@@ -14,23 +14,23 @@ export const CoverScreen: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-between p-4 sm:p-6 py-8 sm:py-12 relative z-10 animate-fade-in overflow-y-auto">
+    <section className="min-h-screen w-full flex flex-col items-center justify-between p-3 sm:p-6 py-3 sm:py-8 relative z-10 animate-fade-in overflow-y-auto">
       
-      {/* Spacer for vertical balance */}
+      {/* Spacer for balanced vertical distribution */}
       <div className="hidden sm:block" />
 
       {/* Main Cover Card */}
-      <div className="w-full max-w-4xl bg-celestial-surface/95 border border-gold/40 shadow-2xl rounded-2xl p-6 sm:p-8 md:p-10 backdrop-blur-md relative my-auto">
+      <div className="w-full max-w-4xl bg-celestial-surface/95 border border-gold/40 shadow-2xl rounded-2xl p-4 sm:p-7 md:p-10 backdrop-blur-md relative my-auto">
         
         {/* Decorative background ambient glow */}
         <div className="absolute -top-20 -left-20 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3.5 sm:gap-6 md:gap-10 items-center">
           
           {/* Left Column (Image & Seal) */}
           <div className="md:col-span-5 flex flex-col items-center justify-center">
-            <div className="w-40 h-56 sm:w-48 sm:h-64 md:w-56 md:h-76 rounded-2xl overflow-hidden border-2 border-gold/50 shadow-gold relative group">
+            <div className="w-28 h-38 xs:w-32 xs:h-44 sm:w-44 sm:h-60 md:w-56 md:h-76 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-gold/50 shadow-gold relative group">
               <img 
                 src="./assets/enoque_capa_mystic.webp" 
                 alt="Capa do Livro de Enoque"
@@ -40,8 +40,8 @@ export const CoverScreen: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* Seal SVG */}
-            <div className="w-10 h-10 sm:w-12 sm:h-12 mt-3 opacity-80">
+            {/* Seal SVG (Visible on screens >= sm) */}
+            <div className="w-8 h-8 sm:w-12 sm:h-12 mt-2 sm:mt-3 opacity-80 hidden sm:block">
               <svg className="w-full h-full stroke-yellow-400 fill-none" viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" strokeWidth="1.5" />
                 <circle cx="50" cy="50" r="42" strokeWidth="1" strokeDasharray="3 3" />
@@ -59,32 +59,32 @@ export const CoverScreen: React.FC = () => {
           <div className="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left">
             
             {/* Title & Subtitle */}
-            <h1 className="font-deco text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold-light tracking-wider mb-2 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] animate-celestial-pulse leading-none">
+            <h1 className="font-deco text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-gold-light tracking-wider mb-1 sm:mb-2 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] animate-celestial-pulse leading-none">
               ENOQUE
             </h1>
             
-            <div className="text-xs sm:text-sm font-sans font-bold tracking-[0.25em] text-mystic-blue uppercase mb-4 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-yellow-400" />
+            <div className="text-[10px] sm:text-xs md:text-sm font-sans font-bold tracking-[0.2em] sm:tracking-[0.25em] text-mystic-blue uppercase mb-2.5 sm:mb-4 flex items-center gap-1.5 sm:gap-2">
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400" />
               <span>O Códice Celestial</span>
-              <Sparkles className="w-4 h-4 text-yellow-400 md:hidden" />
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400 md:hidden" />
             </div>
 
             {/* Description */}
-            <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 font-body">
-              Explore a compilação completa dos textos apócrifos: a rebelião dos anjos Vigilantes, os mistérios cosmológicos das luminárias, a travessia dos dez céus e a revelação do escriba sagrado.
+            <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed mb-3.5 sm:mb-6 md:mb-8 font-body max-w-md line-clamp-3 sm:line-clamp-none">
+              Explore a compilação dos textos apócrifos: a rebelião dos anjos Vigilantes, os mistérios cosmológicos das luminárias, os dez céus e a revelação do escriba sagrado.
             </p>
 
             {/* Action Button */}
             <button
               onClick={handleOpenBook}
-              className="group relative inline-flex items-center justify-center gap-3 px-8 py-3.5 sm:py-4 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 hover:from-amber-500 hover:via-yellow-400 hover:to-amber-500 text-slate-950 font-header font-bold text-xs sm:text-sm md:text-base uppercase tracking-widest rounded-xl shadow-gold hover:shadow-gold-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 touch-manipulation w-full sm:w-auto"
+              className="group relative inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3.5 md:py-4 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 hover:from-amber-500 hover:via-yellow-400 hover:to-amber-500 text-slate-950 font-header font-bold text-xs sm:text-sm md:text-base uppercase tracking-widest rounded-xl shadow-gold hover:shadow-gold-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 touch-manipulation w-full sm:w-auto"
             >
-              <BookOpen className="w-5 h-5 transition-transform group-hover:rotate-6 shrink-0" />
+              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:rotate-6 shrink-0" />
               <span>ABRIR O CÓDICE</span>
             </button>
 
             {/* Sub-label */}
-            <span className="text-[11px] text-slate-400 font-sans mt-3 block">
+            <span className="text-[10px] sm:text-[11px] text-slate-400 font-sans mt-1.5 sm:mt-3 block">
               Contém os 7 capítulos completos com códice e ilustrações
             </span>
 
@@ -95,7 +95,7 @@ export const CoverScreen: React.FC = () => {
       </div>
 
       {/* Subtle Footer on Cover */}
-      <Footer className="mt-6 sm:mt-8" />
+      <Footer className="mt-2 sm:mt-6 py-1 sm:py-2" />
 
     </section>
   );
