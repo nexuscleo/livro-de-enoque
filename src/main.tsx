@@ -6,6 +6,7 @@ import { ReaderProvider } from './context/ReaderContext';
 import { NavigationProvider } from './context/NavigationContext';
 import './index.css';
 
+// Render the application
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <AudioProvider>
