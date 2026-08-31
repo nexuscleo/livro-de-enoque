@@ -23,22 +23,26 @@ export const Sidebar: React.FC = () => {
   return (
     <aside className="hidden lg:flex flex-col w-80 h-screen sticky top-0 bg-celestial-sidebar/95 border-r border-gold/30 p-5 overflow-y-auto backdrop-blur-md select-none shrink-0">
       
-      {/* Brand Header */}
+      {/* Grand Desktop Brand Header with Enlarged Seal & Centered Title */}
       <div 
         onClick={goToCover}
-        className="flex items-center gap-3 pb-5 mb-4 border-b border-gold/20 cursor-pointer group"
+        className="flex flex-col items-center justify-center text-center pb-5 mb-4 border-b border-gold/20 cursor-pointer group"
+        title="Voltar para a Capa"
       >
-        <img 
-          src="./assets/favicon.webp" 
-          alt="Selo Enoque" 
-          className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
-        />
-        <div>
-          <h2 className="font-header text-xl font-bold tracking-wider text-gold group-hover:text-gold-light transition-colors">
-            ENOQUE
-          </h2>
-          <span className="text-[11px] font-sans text-slate-400 tracking-wider uppercase">Códice Celestial</span>
+        <div className="w-20 h-20 p-1.5 rounded-2xl bg-celestial-surface/60 border border-gold/40 shadow-[0_0_15px_rgba(234,179,8,0.15)] group-hover:border-gold/80 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          <img 
+            src="./assets/favicon.webp" 
+            alt="Selo Sagrado de Enoque" 
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]"
+          />
         </div>
+        
+        <h2 className="font-header text-2xl font-bold tracking-[0.2em] text-gold group-hover:text-gold-light transition-colors mt-3">
+          ENOQUE
+        </h2>
+        <span className="text-[10px] font-sans text-mystic-blue tracking-[0.25em] uppercase font-semibold mt-0.5">
+          Códice Celestial
+        </span>
       </div>
 
       {/* Global Quick Action Tools */}
