@@ -33,7 +33,7 @@ export const Sidebar: React.FC = () => {
           <img 
             src="./assets/favicon.webp" 
             alt="Selo Sagrado de Enoque" 
-            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]"
+            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-[0_0_8px_rgba(234,179,8,0.3)]"
           />
         </div>
         
